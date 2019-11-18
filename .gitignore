@@ -14,5 +14,9 @@ logs
 #bundle
 bundle.js
 
+#database
+postgres-config.js
+
+
 
 

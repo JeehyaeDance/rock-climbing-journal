@@ -1,0 +1,16 @@
+/* .startOption {
+  display: flex;
+  justify-content: center;
+} */
+
+.centerPiece {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  border: 2px solid #dcdcdc;
+  border-radius: 10px;
+  width: 450px;
+  height: 250px;
+  padding: 20px;
+  background-color: #dcdcdc;
+}
