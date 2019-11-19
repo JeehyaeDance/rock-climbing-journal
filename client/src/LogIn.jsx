@@ -10,7 +10,6 @@ class LogIn extends React.Component {
       email: ""
     };
     this.changeHandler = this.changeHandler.bind(this);
-    this.clickHandler = this.clickHandler.bind(this);
     this.logIn = this.logIn.bind(this);
   }
 
@@ -20,11 +19,6 @@ class LogIn extends React.Component {
     });
   }
 
-  clickHandler(e) {
-    e.preventDefault();
-    this.props.changePage(e.target.id);
-  }
-
   logIn(e) {
     e.preventDefault();
     axios
@@ -32,7 +26,7 @@ class LogIn extends React.Component {
       .then(response => {
         let loginInfo = response.data;
         if (loginInfo.email === this.state.email) {
-          this.props.changePage("LogPage");
+          this.props.toggleLoginPage();
           this.props.setUserId(loginInfo.userid);
         } else {
           alert("your Log In information is not correct");
@@ -67,7 +61,7 @@ class LogIn extends React.Component {
           </button>
           <div>
             <nav>Need an account?</nav>
-            <button id="CreateAcc" onClick={this.clickHandler}>
+            <button id="CreateAcc" onClick={this.props.toggleLoginPage}>
               Create Account
             </button>
           </div>

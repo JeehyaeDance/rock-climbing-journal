@@ -7,17 +7,17 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentPage: "LogIn",
-      userId: 0
+      showLoginPage: true,
+      userId: undefined
     };
-    this.changePage = this.changePage.bind(this);
+    this.toggleLoginPage = this.toggleLoginPage.bind(this);
     this.setUserId = this.setUserId.bind(this);
   }
 
-  changePage(page) {
-    this.setState({
-      currentPage: page
-    });
+  toggleLoginPage() {
+    this.setState(({ showLoginPage }) => ({
+      showLoginPage: !showLoginPage
+    }));
   }
 
   setUserId(id) {
@@ -27,12 +27,16 @@ class App extends React.Component {
   }
 
   render() {
-    let loadPage = this.state.currentPage;
+    const { userId, showLoginPage } = this.state;
     return (
       <div>
-        {loadPage === "LogIn" ? <LogIn changePage={this.changePage} setUserId={this.setUserId} /> : null}
-        {loadPage === "CreateAcc" ? <CreateAcc changePage={this.changePage} /> : null}
-        {loadPage === "LogPage" ? <LogPage userId={this.state.userId} /> : null}
+        {userId ? (
+          <LogPage userId={userId} />
+        ) : showLoginPage ? (
+          <LogIn toggleLoginPage={this.toggleLoginPage} setUserId={this.setUserId} />
+        ) : (
+          <CreateAcc toggleLoginPage={this.toggleLoginPage} />
+        )}
       </div>
     );
   }

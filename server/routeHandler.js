@@ -34,5 +34,14 @@ module.exports = {
         }
       }
     );
+  },
+  getLogs: (req, res) => {
+    db.query(`SELECT * FROM logs WHERE userid = '${req.params.userId}' ORDER BY posting_date ASC`, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(data.rows);
+      }
+    });
   }
 };

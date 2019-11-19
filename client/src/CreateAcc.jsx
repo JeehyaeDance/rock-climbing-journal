@@ -29,7 +29,7 @@ class CreateAcc extends React.Component {
       })
       .then(response => {
         console.log(response);
-        this.props.changePage("LogIn");
+        this.props.toggleLoginPage();
       })
       .catch(error => {
         console.log(error);

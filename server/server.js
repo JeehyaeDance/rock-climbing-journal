@@ -8,6 +8,8 @@ app.use(express.static("public"));
 
 app.get("/login/:userName", bodyParser.json(), cb.loginInfo);
 
+app.get("/logs/:userId", bodyParser.json(), cb.getLogs);
+
 app.post("/user", bodyParser.json(), cb.addUser);
 
 app.post("/log", bodyParser.json(), cb.logWork);
