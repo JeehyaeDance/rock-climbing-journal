@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style/LogIn.css";
+import axios from "axios";
 
 class LogIn extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class LogIn extends React.Component {
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
+    this.logIn = this.logIn.bind(this);
   }
 
   changeHandler(e) {
@@ -23,7 +25,21 @@ class LogIn extends React.Component {
     this.props.changePage(e.target.id);
   }
 
-  logIn() {}
+  logIn(e) {
+    e.preventDefault();
+    axios
+      .get(`/login/${this.state.userName}`)
+      .then(response => {
+        let loginInfo = response.data;
+        if (loginInfo.email === this.state.email) {
+          this.props.changePage("LogPage");
+          this.props.setUserId(loginInfo.userid);
+        } else {
+          alert("your Log In information is not correct");
+        }
+      })
+      .catch(error => console.log(error));
+  }
 
   render() {
     return (
@@ -46,7 +62,7 @@ class LogIn extends React.Component {
               />
             </label>
           </form>
-          <button id="LogIn" onClick={this.clickHandler}>
+          <button id="LogIn" onClick={this.logIn}>
             Log In
           </button>
           <div>
