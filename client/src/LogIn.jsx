@@ -21,6 +21,7 @@ class LogIn extends React.Component {
 
   logIn(e) {
     e.preventDefault();
+    //need to check if username and email is empty
     axios
       .get(`/login/${this.state.userName}`)
       .then(response => {

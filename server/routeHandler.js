@@ -59,13 +59,40 @@ module.exports = {
             db.query(`INSERT INTO users (password, username) VALUES ('${hash}', '${username}') RETURNING userId`).then(
               data => {
                 data.rows.userid;
+                // need to build cookie with userid
               }
             );
           });
+        } else {
+          res.send("user exist");
         }
       })
 
       //else, throw error
       .catch(e => console.log(e));
+  },
+  login: (req, res) => {
+    let username = req.body.userName;
+    let pw = req.body.password;
+    db.query(`SELECT * FROM users WHERE username = '${username}'`).then(result => {
+      let user = result.rows[0];
+      if (user) {
+        //compare pw with hash
+        bcrypt.compare(pw, user.password).then(function(result) {
+          if (result) {
+            res.cookie("user_id", user.userid, {
+              httpOnly: true,
+              secure: req.app.get("env") != "development",
+              signed: true
+            });
+            //log in
+          } else {
+            res.send("invalid login");
+          }
+        });
+      } else {
+        res.send("invalid login");
+      }
+    });
   }
 };

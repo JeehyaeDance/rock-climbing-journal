@@ -25,4 +25,6 @@ app.post("/log", bodyParser.json(), cb.logWork);
 
 app.post("/createAcc", bodyParser.json(), cb.createAcc);
 
+app.post("/login", bodyParser.json(), cb.login);
+
 app.listen(port, () => console.log(`server is listening on port ${port}!`));
