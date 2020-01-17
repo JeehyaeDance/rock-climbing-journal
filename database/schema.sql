@@ -5,7 +5,7 @@ CREATE DATABASE [IF NOT EXISTS] climbing;
 CREATE TABLE users (
     userId SERIAL PRIMARY KEY,
     userName VARCHAR (355) UNIQUE,
-    email VARCHAR (355)
+    password VARCHAR (355)
 );
 
 CREATE TABLE logs (
