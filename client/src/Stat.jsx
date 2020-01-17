@@ -16,7 +16,6 @@ class Stat extends React.Component {
       .get(`/logs/${this.props.userId}`)
       .then(response => {
         let logs = sortLogs(response.data);
-        console.log(logs);
         this.setState({
           logs: logs
         });

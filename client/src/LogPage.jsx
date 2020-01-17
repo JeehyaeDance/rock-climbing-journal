@@ -51,7 +51,7 @@ class LogPage extends React.Component {
     const { toggleStat, level, userId, isLogged, note } = this.state;
     return (
       <div>
-        <div>
+        <div className={styles.navBar}>
           <h5>LOG</h5>
           <h5 onClick={this.toggleStats}>STATS</h5>
         </div>

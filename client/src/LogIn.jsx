@@ -39,8 +39,8 @@ class LogIn extends React.Component {
     return (
       <div className={styles.centerPiece}>
         <h1>ROCK CLIMBING AWAY~!</h1>
-        <div className={styles.startOption}>
-          <form>
+        <div>
+          <form className={styles.loginForm}>
             <label>
               User Name
               <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
@@ -59,7 +59,7 @@ class LogIn extends React.Component {
           <button id="LogIn" onClick={this.logIn}>
             Log In
           </button>
-          <div>
+          <div className={styles.needAcc}>
             <nav>Need an account?</nav>
             <button id="CreateAcc" onClick={this.props.toggleLoginPage}>
               Create Account
