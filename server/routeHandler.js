@@ -1,4 +1,5 @@
 const db = require("../database/index");
+const bcrypt = require("bcrypt");
 
 module.exports = {
   loginInfo: (req, res) => {
@@ -46,5 +47,25 @@ module.exports = {
         }
       }
     );
+  },
+  createAcc: (req, res) => {
+    let username = req.body.userName;
+    let pw = req.body.password;
+    db.query(`SELECT * FROM users WHERE username = '${username}'`)
+      .then(result => {
+        let user = result.rows[0];
+        if (!user) {
+          bcrypt.hash(pw, 10).then(function(hash) {
+            db.query(`INSERT INTO users (password, username) VALUES ('${hash}', '${username}') RETURNING userId`).then(
+              data => {
+                data.rows.userid;
+              }
+            );
+          });
+        }
+      })
+
+      //else, throw error
+      .catch(e => console.log(e));
   }
 };
