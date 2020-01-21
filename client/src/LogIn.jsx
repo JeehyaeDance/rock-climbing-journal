@@ -7,7 +7,7 @@ class LogIn extends React.Component {
     super(props);
     this.state = {
       userName: "",
-      email: ""
+      password: ""
     };
     this.changeHandler = this.changeHandler.bind(this);
     this.logIn = this.logIn.bind(this);
@@ -22,18 +22,28 @@ class LogIn extends React.Component {
   logIn(e) {
     e.preventDefault();
     //need to check if username and email is empty
-    axios
-      .get(`/login/${this.state.userName}`)
-      .then(response => {
-        let loginInfo = response.data;
-        if (loginInfo.email === this.state.email) {
-          this.props.toggleLoginPage();
-          this.props.setUserId(loginInfo.userid);
-        } else {
-          alert("your Log In information is not correct");
-        }
-      })
-      .catch(error => console.log(error));
+    let userName = this.state.userName;
+    let password = this.state.password;
+    let user = {
+      userName: userName,
+      password: password
+    };
+    if (userName != "" && password != "") {
+      axios
+        .post("/login", user)
+        .then(response => {
+          let loginInfo = response.data;
+          if (loginInfo != "invalid login") {
+            this.props.toggleLoginPage();
+            this.props.setUserId(loginInfo.userid);
+          } else {
+            alert("your Log In information is not correct");
+          }
+        })
+        .catch(error => console.log(error));
+    } else {
+      alert("please fill out form correctly");
+    }
   }
 
   render() {
@@ -47,14 +57,8 @@ class LogIn extends React.Component {
               <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
             </label>
             <label>
-              Email
-              <input
-                id="email"
-                type="email"
-                pattern="local@domain"
-                value={this.state.email}
-                onChange={this.changeHandler}
-              />
+              Password
+              <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
             </label>
           </form>
           <button id="LogIn" onClick={this.logIn}>
