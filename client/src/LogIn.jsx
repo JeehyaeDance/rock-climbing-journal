@@ -30,7 +30,7 @@ class LogIn extends React.Component {
     };
     if (userName != "" && password != "") {
       axios
-        .post("/login", user)
+        .post("/login", user, { withCredentials: true })
         .then(response => {
           let loginInfo = response.data;
           if (loginInfo != "invalid login") {

@@ -75,7 +75,7 @@ module.exports = {
               secure: req.app.get("env") != "development",
               signed: true
             });
-            //log in
+            res.send(req.signedCookies);
           } else {
             res.send("invalid login");
           }

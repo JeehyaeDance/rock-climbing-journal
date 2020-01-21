@@ -3,13 +3,18 @@ const app = express();
 const port = 3000;
 const bodyParser = require("body-parser");
 const cb = require("./routeHandler.js");
+var cookieParser = require("cookie-parser");
+var cors = require("cors");
 
 app.use(express.static("public"));
 
-app.use("/", (req, res, next) => {
-  req.userId = "climber";
-  next();
-});
+app.use(cookieParser("My Secret"));
+
+app.use(
+  cors({
+    credentials: true
+  })
+);
 
 app.get("/status", bodyParser.json(), () => {
   console.log("hit it");
