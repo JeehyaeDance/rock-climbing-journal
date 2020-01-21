@@ -46,18 +46,21 @@ module.exports = {
         let user = result.rows[0];
         if (!user) {
           bcrypt.hash(pw, 10).then(function(hash) {
-            db.query(`INSERT INTO users (password, username) VALUES ('${hash}', '${username}') RETURNING userId`).then(
-              data => {
-                data.rows.userid;
-                // need to build cookie with userid
-              }
-            );
+            db.query(`INSERT INTO users (password, username) VALUES ('${hash}', '${username}') RETURNING userId`)
+              .then(data => {
+                res.send({
+                  id: data.rows[0].userid,
+                  message: "account created"
+                });
+              })
+              .catch(error => {
+                console.log(error);
+              });
           });
         } else {
           res.send("user exist");
         }
       })
-
       //else, throw error
       .catch(e => console.log(e));
   },

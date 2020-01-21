@@ -7,7 +7,7 @@ class CreateAcc extends React.Component {
     super(props);
     this.state = {
       accUserName: "",
-      accEmail: ""
+      accPassword: ""
     };
 
     this.changeHandler = this.changeHandler.bind(this);
@@ -22,19 +22,45 @@ class CreateAcc extends React.Component {
 
   clickHandler(e) {
     e.preventDefault();
-    axios
-      .post("/user", {
-        userName: this.state.accUserName,
-        email: this.state.accEmail
-      })
-      .then(response => {
-        console.log(response);
-        this.props.toggleLoginPage();
-      })
-      .catch(error => {
-        console.log(error);
-        alert("this username is already taken");
-      });
+    let userName = this.state.accUserName;
+    let password = this.state.accPassword;
+    let user = {
+      userName: userName,
+      password: password
+    };
+    if (userName != "" && password != "") {
+      axios
+        .post("/createAcc", user)
+        .then(response => {
+          console.log(response);
+          let result = response.data;
+          if (result == "user exist") {
+            alert("this username is already taken");
+          } else {
+            this.props.toggleLoginPage();
+            //can automatically login with userid later
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      alert("please fill out form correctly");
+    }
+
+    // axios
+    //   .post("/user", {
+    //     userName: this.state.accUserName,
+    //     email: this.state.accPassword
+    //   })
+    //   .then(response => {
+    //     console.log(response);
+    //     this.props.toggleLoginPage();
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     alert("this username is already taken");
+    //   });
   }
 
   render() {
@@ -46,14 +72,8 @@ class CreateAcc extends React.Component {
             <input id="accUserName" type="text" value={this.state.accUserName} onChange={this.changeHandler} />
           </label>
           <label>
-            Email
-            <input
-              id="accEmail"
-              type="email"
-              pattern="local@domain"
-              value={this.state.accEmail}
-              onChange={this.changeHandler}
-            />
+            Password
+            <input id="accPassword" type="password" value={this.state.accPassword} onChange={this.changeHandler} />
           </label>
         </form>
         <button id="realCreateAcc" onClick={this.clickHandler}>
