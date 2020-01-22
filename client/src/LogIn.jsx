@@ -50,8 +50,8 @@ class LogIn extends React.Component {
     return (
       <div className={styles.centerPiece}>
         <h1>ROCK CLIMBING AWAY~!</h1>
-        <div>
-          <form className={styles.loginForm}>
+        <div className={styles.loginForm}>
+          <form className={styles.loginBox}>
             <label>
               User Name
               <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
@@ -64,12 +64,12 @@ class LogIn extends React.Component {
           <button id="LogIn" onClick={this.logIn}>
             Log In
           </button>
-          <div className={styles.needAcc}>
-            <nav>Need an account?</nav>
-            <button id="CreateAcc" onClick={this.props.toggleLoginPage}>
-              Create Account
-            </button>
-          </div>
+        </div>
+        <div className={styles.needAcc}>
+          <nav>Need an account?</nav>
+          <button id="CreateAcc" onClick={this.props.toggleLoginPage}>
+            Create Account
+          </button>
         </div>
       </div>
     );

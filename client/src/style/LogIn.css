@@ -8,14 +8,37 @@
   height: 250px;
   padding: 20px;
   background-color: #dcdcdc;
+  font-family: "Roboto", sans-serif;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+}
+
+h1 {
+  font-family: "Bangers", cursive;
+  font-size: 50px;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 60px;
 }
 
 .loginForm {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .needAcc {
   display: flex;
   flex-direction: row;
+  margin-top: 40px;
+}
+
+button {
+  border: 2px solid #dcdcdc;
+  border-radius: 10px;
 }
