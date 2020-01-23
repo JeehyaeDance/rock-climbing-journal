@@ -53,37 +53,37 @@ class LogPage extends React.Component {
     const { toggleStat, level, userId, isLogged, note } = this.state;
     return (
       <div className={styles.background}>
-        <div>
+        <div className={styles.mainBox}>
           <div className={styles.navBar}>
-            <PlusIcon />
-            <GraphIcon onClick={this.toggleStats} />
+            <div className={styles.navBtn}>
+              <PlusIcon />
+            </div>
+            <div className={styles.navBtn}>
+              <GraphIcon onClick={this.toggleStats} />
+            </div>
           </div>
           {toggleStat ? (
             <Stat userId={userId} />
           ) : (
             <div className={styles.centerPiece}>
-              <nav>Climbing Log</nav>
+              <h1>Climbing Log</h1>
               <form>
-                <label>
-                  Level
-                  <select id="level" value={level} onChange={this.handleChange}>
-                    <option value="0">V0</option>
-                    <option value="1">V1</option>
-                    <option value="2">V2</option>
-                    <option value="3">V3</option>
-                    <option value="4">V4</option>
-                    <option value="5">V5</option>
-                    <option value="6">V6</option>
-                    <option value="7">V7</option>
-                    <option value="8">V8</option>
-                    <option value="9">V9</option>
-                    <option value="10">V10</option>
-                  </select>
-                </label>
-                <label>
-                  Note
-                  <input id="note" type="text" value={note} onChange={this.handleChange} />
-                </label>
+                <label>Level</label>
+                <select id="level" value={level} onChange={this.handleChange}>
+                  <option value="0">V0</option>
+                  <option value="1">V1</option>
+                  <option value="2">V2</option>
+                  <option value="3">V3</option>
+                  <option value="4">V4</option>
+                  <option value="5">V5</option>
+                  <option value="6">V6</option>
+                  <option value="7">V7</option>
+                  <option value="8">V8</option>
+                  <option value="9">V9</option>
+                  <option value="10">V10</option>
+                </select>
+                <label>Note</label>
+                <input id="note" type="text" value={note} onChange={this.handleChange} />
               </form>
               <button onClick={this.handleClick}>Save</button>
               {isLogged ? <nav>Your log is saved</nav> : null}
