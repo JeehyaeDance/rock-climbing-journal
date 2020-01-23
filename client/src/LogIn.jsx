@@ -50,30 +50,28 @@ class LogIn extends React.Component {
     return (
       <div className={styles.centerPiece}>
         <div className={styles.leftSide}>
-          <h1>ROCK CLIMBING AWAY~!</h1>
+          <h1>Login</h1>
           <div className={styles.loginForm}>
             <form className={styles.loginBox}>
-              <label>
-                User Name
-                <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
-              </label>
-              <label>
-                Password
-                <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
-              </label>
+              <label>User Name</label>
+              <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
+              <label>Password</label>
+              <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
             </form>
             <button id="LogIn" onClick={this.logIn}>
               Log In
             </button>
           </div>
           <div className={styles.needAcc}>
-            <nav>Need an account?</nav>
-            <button id="CreateAcc" onClick={this.props.toggleLoginPage}>
+            <nav>Need an account? </nav>
+            <div className={styles.createBtn} id="CreateAcc" onClick={this.props.toggleLoginPage}>
               Create Account
-            </button>
+            </div>
           </div>
         </div>
-        <div className={styles.rightSide}></div>
+        <div className={styles.rightSide}>
+          <p>WELCOME TO CLIMBING DAY</p>
+        </div>
       </div>
     );
   }
