@@ -67,7 +67,7 @@ class LogPage extends React.Component {
           ) : (
             <div className={styles.centerPiece}>
               <h1>Climbing Log</h1>
-              <form>
+              <form className={styles.formStyle}>
                 <label>Level</label>
                 <select id="level" value={level} onChange={this.handleChange}>
                   <option value="0">V0</option>
@@ -83,10 +83,10 @@ class LogPage extends React.Component {
                   <option value="10">V10</option>
                 </select>
                 <label>Note</label>
-                <input id="note" type="text" value={note} onChange={this.handleChange} />
+                <input className={styles.noteBox} id="note" type="text" value={note} onChange={this.handleChange} />
               </form>
               <button onClick={this.handleClick}>Save</button>
-              {isLogged ? <nav>Your log is saved</nav> : null}
+              {isLogged ? <span className={styles.saveMsg}>Your log is saved! 🧗🏻‍♀️</span> : null}
             </div>
           )}
         </div>
