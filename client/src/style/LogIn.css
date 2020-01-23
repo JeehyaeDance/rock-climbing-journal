@@ -49,8 +49,13 @@ h1 {
   font-weight: bold;
 }
 
+.createBtn:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px #a9a9a9;
+}
+
 button {
-  border: 2px solid #a9a9a9;
+  border-color: #a9a9a9;
   border-radius: 15px;
   background-color: #a9a9a9;
   font-family: "Roboto", sans-serif;
@@ -58,7 +63,12 @@ button {
   font-size: 18px;
   height: 30px;
   width: 300px;
-  margin-top: 20px;
+  margin: 20px 20px 0px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #696969;
 }
 
 p {
