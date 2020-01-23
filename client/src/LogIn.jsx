@@ -49,28 +49,31 @@ class LogIn extends React.Component {
   render() {
     return (
       <div className={styles.centerPiece}>
-        <h1>ROCK CLIMBING AWAY~!</h1>
-        <div className={styles.loginForm}>
-          <form className={styles.loginBox}>
-            <label>
-              User Name
-              <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
-            </label>
-            <label>
-              Password
-              <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
-            </label>
-          </form>
-          <button id="LogIn" onClick={this.logIn}>
-            Log In
-          </button>
+        <div className={styles.leftSide}>
+          <h1>ROCK CLIMBING AWAY~!</h1>
+          <div className={styles.loginForm}>
+            <form className={styles.loginBox}>
+              <label>
+                User Name
+                <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
+              </label>
+              <label>
+                Password
+                <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
+              </label>
+            </form>
+            <button id="LogIn" onClick={this.logIn}>
+              Log In
+            </button>
+          </div>
+          <div className={styles.needAcc}>
+            <nav>Need an account?</nav>
+            <button id="CreateAcc" onClick={this.props.toggleLoginPage}>
+              Create Account
+            </button>
+          </div>
         </div>
-        <div className={styles.needAcc}>
-          <nav>Need an account?</nav>
-          <button id="CreateAcc" onClick={this.props.toggleLoginPage}>
-            Create Account
-          </button>
-        </div>
+        <div className={styles.rightSide}></div>
       </div>
     );
   }

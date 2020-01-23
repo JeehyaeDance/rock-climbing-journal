@@ -1,4 +1,4 @@
-.centerPiece {
+/* .centerPiece {
   display: flex;
   flex-direction: column;
   color: black;
@@ -12,6 +12,22 @@
   position: fixed;
   top: 30%;
   left: 30%;
+  box-shadow: 10px 10px 5px grey;
+} */
+.centerPiece {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.leftSide {
+  flex: 2;
+}
+
+.rightSide {
+  flex: 3;
+  background-image: url(../../../public/images/climbing.jpeg);
+  background-size: cover;
 }
 
 h1 {
