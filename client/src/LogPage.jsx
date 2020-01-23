@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./style/LogPage.css";
 import axios from "axios";
 import Stat from "./Stat.jsx";
+import PlusIcon from "./PlusIcon.jsx";
+import GraphIcon from "./GraphIcon.jsx";
 
 class LogPage extends React.Component {
   constructor(props) {
@@ -50,42 +52,44 @@ class LogPage extends React.Component {
   render() {
     const { toggleStat, level, userId, isLogged, note } = this.state;
     return (
-      <div>
-        <div className={styles.navBar}>
-          <h5>LOG</h5>
-          <h5 onClick={this.toggleStats}>STATS</h5>
-        </div>
-        {toggleStat ? (
-          <Stat userId={userId} />
-        ) : (
-          <div className={styles.centerPiece}>
-            <nav>Climbing Log</nav>
-            <form>
-              <label>
-                Level
-                <select id="level" value={level} onChange={this.handleChange}>
-                  <option value="0">V0</option>
-                  <option value="1">V1</option>
-                  <option value="2">V2</option>
-                  <option value="3">V3</option>
-                  <option value="4">V4</option>
-                  <option value="5">V5</option>
-                  <option value="6">V6</option>
-                  <option value="7">V7</option>
-                  <option value="8">V8</option>
-                  <option value="9">V9</option>
-                  <option value="10">V10</option>
-                </select>
-              </label>
-              <label>
-                Note
-                <input id="note" type="text" value={note} onChange={this.handleChange} />
-              </label>
-            </form>
-            <button onClick={this.handleClick}>Save</button>
-            {isLogged ? <nav>Your log is saved</nav> : null}
+      <div className={styles.background}>
+        <div>
+          <div className={styles.navBar}>
+            <PlusIcon />
+            <GraphIcon onClick={this.toggleStats} />
           </div>
-        )}
+          {toggleStat ? (
+            <Stat userId={userId} />
+          ) : (
+            <div className={styles.centerPiece}>
+              <nav>Climbing Log</nav>
+              <form>
+                <label>
+                  Level
+                  <select id="level" value={level} onChange={this.handleChange}>
+                    <option value="0">V0</option>
+                    <option value="1">V1</option>
+                    <option value="2">V2</option>
+                    <option value="3">V3</option>
+                    <option value="4">V4</option>
+                    <option value="5">V5</option>
+                    <option value="6">V6</option>
+                    <option value="7">V7</option>
+                    <option value="8">V8</option>
+                    <option value="9">V9</option>
+                    <option value="10">V10</option>
+                  </select>
+                </label>
+                <label>
+                  Note
+                  <input id="note" type="text" value={note} onChange={this.handleChange} />
+                </label>
+              </form>
+              <button onClick={this.handleClick}>Save</button>
+              {isLogged ? <nav>Your log is saved</nav> : null}
+            </div>
+          )}
+        </div>
       </div>
     );
   }

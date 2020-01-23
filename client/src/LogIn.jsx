@@ -21,7 +21,6 @@ class LogIn extends React.Component {
 
   logIn(e) {
     e.preventDefault();
-    //need to check if username and email is empty
     let userName = this.state.userName;
     let password = this.state.password;
     let user = {
@@ -34,8 +33,7 @@ class LogIn extends React.Component {
         .then(response => {
           let loginInfo = response.data;
           if (loginInfo != "invalid login") {
-            this.props.toggleLoginPage();
-            this.props.setUserId(loginInfo.userid);
+            this.props.setUserId(loginInfo.user_id);
           } else {
             alert("your Log In information is not correct");
           }
