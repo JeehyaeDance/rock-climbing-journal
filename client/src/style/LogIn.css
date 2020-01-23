@@ -5,9 +5,10 @@
 }
 
 .leftSide {
-  margin: auto;
   flex: 2;
-  padding: 0px 50px 0px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Roboto", sans-serif;
 }
 
@@ -39,7 +40,7 @@ h1 {
 
 .needAcc {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   margin-top: 40px;
   color: #a9a9a9;
 }
@@ -65,6 +66,7 @@ button {
   width: 300px;
   margin: 20px 20px 0px 20px;
   cursor: pointer;
+  transition: background-color 0.2s ease 0s;
 }
 
 button:hover {

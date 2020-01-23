@@ -47,38 +47,32 @@ class CreateAcc extends React.Component {
     } else {
       alert("please fill out form correctly");
     }
-
-    // axios
-    //   .post("/user", {
-    //     userName: this.state.accUserName,
-    //     email: this.state.accPassword
-    //   })
-    //   .then(response => {
-    //     console.log(response);
-    //     this.props.toggleLoginPage();
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //     alert("this username is already taken");
-    //   });
   }
 
   render() {
     return (
       <div className={styles.centerPiece}>
-        <form>
-          <label>
-            User Name
-            <input id="accUserName" type="text" value={this.state.accUserName} onChange={this.changeHandler} />
-          </label>
-          <label>
-            Password
-            <input id="accPassword" type="password" value={this.state.accPassword} onChange={this.changeHandler} />
-          </label>
-        </form>
-        <button id="realCreateAcc" onClick={this.clickHandler}>
-          Create Account
-        </button>
+        <div className={styles.leftSide}>
+          <div>
+            <h1>Sign Up</h1>
+            <form>
+              <label>User Name</label>
+              <input id="accUserName" type="text" value={this.state.accUserName} onChange={this.changeHandler} />
+              <label>Password</label>
+              <input id="accPassword" type="password" value={this.state.accPassword} onChange={this.changeHandler} />
+            </form>
+            <button id="realCreateAcc" onClick={this.clickHandler}>
+              Create Account
+            </button>
+            <div className={styles.havAcc}>
+              <span>Already have an account?</span>
+              <span className={styles.loginBtn} id="loginBtn" onClick={this.props.toggleLoginPage}>
+                Login
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.rightSide}></div>
       </div>
     );
   }

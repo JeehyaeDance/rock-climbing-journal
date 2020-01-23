@@ -50,22 +50,24 @@ class LogIn extends React.Component {
     return (
       <div className={styles.centerPiece}>
         <div className={styles.leftSide}>
-          <h1>Login</h1>
-          <div className={styles.loginForm}>
-            <form className={styles.loginBox}>
-              <label>User Name</label>
-              <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
-              <label>Password</label>
-              <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
-            </form>
-            <button id="LogIn" onClick={this.logIn}>
-              Log In
-            </button>
-          </div>
-          <div className={styles.needAcc}>
-            <nav>Need an account? </nav>
-            <div className={styles.createBtn} id="CreateAcc" onClick={this.props.toggleLoginPage}>
-              Create Account
+          <div>
+            <h1>Login</h1>
+            <div className={styles.loginForm}>
+              <form className={styles.loginBox}>
+                <label>User Name</label>
+                <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
+                <label>Password</label>
+                <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
+              </form>
+              <button id="LogIn" onClick={this.logIn}>
+                Log In
+              </button>
+            </div>
+            <div className={styles.needAcc}>
+              <span>Need an account? </span>
+              <span className={styles.createBtn} id="CreateAcc" onClick={this.props.toggleLoginPage}>
+                Create Account
+              </span>
             </div>
           </div>
         </div>

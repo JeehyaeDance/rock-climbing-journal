@@ -1,11 +1,45 @@
 .centerPiece {
   display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.leftSide {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.rightSide {
+  flex: 3;
+  background-image: url(../../../public/images/climbing.jpeg);
+  background-size: cover;
+}
+
+form {
+  display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  min-height: 130px;
+  min-width: 200px;
+  color: #a9a9a9;
+}
+
+.havAcc {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  color: #a9a9a9;
+}
+
+.loginBtn {
   color: black;
-  border: 2px solid #dcdcdc;
-  border-radius: 10px;
-  width: 450px;
-  height: 250px;
-  padding: 20px;
-  background-color: #dcdcdc;
+  font-weight: bold;
+}
+
+.loginBtn:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px #a9a9a9;
 }
