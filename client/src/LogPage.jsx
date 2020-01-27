@@ -41,7 +41,11 @@ class LogPage extends React.Component {
         userId: this.state.userId
       })
       .then(response => {
-        this.setState({ isLogged: !this.state.isLogged });
+        this.setState({
+          isLogged: !this.state.isLogged,
+          level: 0,
+          note: ""
+        });
         console.log(response);
       })
       .catch(error => {
@@ -58,8 +62,8 @@ class LogPage extends React.Component {
             <div className={styles.navBtn}>
               <PlusIcon />
             </div>
-            <div className={styles.navBtn}>
-              <GraphIcon onClick={this.toggleStats} />
+            <div className={styles.navBtn} onClick={this.toggleStats}>
+              <GraphIcon />
             </div>
           </div>
           {toggleStat ? (
