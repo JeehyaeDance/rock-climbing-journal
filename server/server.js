@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cb = require("./routeHandler.js");
 var cookieParser = require("cookie-parser");
 var cors = require("cors");
+var authMiddleware = require("./middleware.js");
 
 app.use(express.static("public"));
 
@@ -15,6 +16,8 @@ app.use(
     credentials: true
   })
 );
+
+app.use("/user", authMiddleware.ensureLoggedIn, cb.login);
 
 app.get("/status", bodyParser.json(), () => {
   console.log("hit it");
