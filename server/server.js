@@ -17,15 +17,9 @@ app.use(
   })
 );
 
-app.use("/user", authMiddleware.ensureLoggedIn, cb.login);
-
-app.get("/status", bodyParser.json(), () => {
-  console.log("hit it");
-});
+app.get("/api", authMiddleware.ensureLoggedIn, cb.login);
 
 app.get("/logs/:userId", bodyParser.json(), cb.getLogs);
-
-app.post("/user", bodyParser.json(), cb.addUser);
 
 app.post("/log", bodyParser.json(), cb.logWork);
 

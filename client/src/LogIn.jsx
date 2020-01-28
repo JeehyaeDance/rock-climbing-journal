@@ -32,7 +32,8 @@ class LogIn extends React.Component {
         .post("/login", user, { withCredentials: true })
         .then(response => {
           let loginInfo = response.data;
-          if (loginInfo != "invalid login") {
+          console.log("loginInfo", loginInfo);
+          if (loginInfo !== "invalid login") {
             this.props.setUserId(loginInfo.user_id);
           } else {
             alert("your Log In information is not correct");

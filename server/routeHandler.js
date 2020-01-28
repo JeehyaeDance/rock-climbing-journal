@@ -2,18 +2,6 @@ const db = require("../database/index");
 const bcrypt = require("bcrypt");
 
 module.exports = {
-  addUser: (req, res) => {
-    db.query(
-      `INSERT INTO users (email, username) VALUES ('${req.body.email}', '${req.body.userName}')`,
-      (err, data) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.send(data.rows);
-        }
-      }
-    );
-  },
   logWork: (req, res) => {
     db.query(
       `INSERT INTO logs (level, note, userid) VALUES ('${req.body.level}', '${req.body.note}', '${req.body.userId}')`,
@@ -73,12 +61,15 @@ module.exports = {
         //compare pw with hash
         bcrypt.compare(pw, user.password).then(function(result) {
           if (result) {
-            res.cookie("user_id", user.userid, {
-              httpOnly: true,
-              secure: req.app.get("env") != "development",
-              signed: true
-            });
-            res.send(req.signedCookies);
+            res
+              .cookie("user_id", user.userid, {
+                httpOnly: true,
+                // secure: req.app.get("env") !== "development",
+                secure: false,
+                signed: true,
+                maxAge: 86400
+              })
+              .send(req.signedCookies);
           } else {
             res.send("invalid login");
           }

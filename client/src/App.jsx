@@ -2,6 +2,7 @@ import React from "react";
 import LogIn from "./LogIn.jsx";
 import CreateAcc from "./CreateAcc.jsx";
 import LogPage from "./LogPage.jsx";
+import axios from "axios";
 
 class App extends React.Component {
   constructor() {
@@ -14,6 +15,16 @@ class App extends React.Component {
     this.setUserId = this.setUserId.bind(this);
   }
 
+  componentDidMount() {
+    axios
+      .create({ withCredentials: true })
+      .get("/api")
+      .then(result => {
+        console.log(result);
+      })
+      .catch(e => console.log(e));
+  }
+
   toggleLoginPage() {
     this.setState(({ showLoginPage }) => ({
       showLoginPage: !showLoginPage
@@ -21,6 +32,7 @@ class App extends React.Component {
   }
 
   setUserId(id) {
+    console.log("id", id);
     this.setState({
       userId: id
     });
