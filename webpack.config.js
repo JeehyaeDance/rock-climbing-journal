@@ -5,7 +5,8 @@ module.exports = {
   entry: "./client/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "public")
+    path: path.resolve(__dirname, "public"),
+    publicPath: "/public"
   },
   module: {
     rules: [
@@ -32,5 +33,16 @@ module.exports = {
         ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
+    port: 3000,
+    publicPath: "/public",
+    proxy: {
+      "/": {
+        target: "http://localhost:3001"
+      }
+    },
+    writeToDisk: true
   }
 };

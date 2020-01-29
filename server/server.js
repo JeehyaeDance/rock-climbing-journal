@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 3001;
+const path = require("path");
 const bodyParser = require("body-parser");
 const cb = require("./routeHandler.js");
 var cookieParser = require("cookie-parser");
@@ -17,7 +18,16 @@ app.use(
   })
 );
 
-app.get("/api", authMiddleware.ensureLoggedIn, cb.login);
+app.get("/*", function(req, res) {
+  console.log(__dirname);
+  res.sendFile(path.join(__dirname, "../public/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
+
+app.get("/api", authMiddleware.ensureLoggedIn, cb.defLogin);
 
 app.get("/logs/:userId", bodyParser.json(), cb.getLogs);
 

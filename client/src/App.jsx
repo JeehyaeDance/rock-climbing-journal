@@ -16,13 +16,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .create({ withCredentials: true })
-      .get("/api")
-      .then(result => {
-        console.log(result);
-      })
-      .catch(e => console.log(e));
+    if (!this.state.userId) {
+      axios
+        .create({ withCredentials: true })
+        .get("/api")
+        .then(result => {
+          console.log(result);
+        })
+        .catch(e => console.log(e));
+    }
   }
 
   toggleLoginPage() {
@@ -32,7 +34,6 @@ class App extends React.Component {
   }
 
   setUserId(id) {
-    console.log("id", id);
     this.setState({
       userId: id
     });

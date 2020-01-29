@@ -55,28 +55,33 @@ module.exports = {
   login: (req, res) => {
     let username = req.body.userName;
     let pw = req.body.password;
-    db.query(`SELECT * FROM users WHERE username = '${username}'`).then(result => {
-      let user = result.rows[0];
-      if (user) {
-        //compare pw with hash
-        bcrypt.compare(pw, user.password).then(function(result) {
-          if (result) {
-            res
-              .cookie("user_id", user.userid, {
-                httpOnly: true,
-                // secure: req.app.get("env") !== "development",
-                secure: false,
-                signed: true,
-                maxAge: 86400
-              })
-              .send(req.signedCookies);
-          } else {
-            res.send("invalid login");
-          }
-        });
-      } else {
-        res.send("invalid login");
-      }
-    });
+    db.query(`SELECT * FROM users WHERE username = '${username}'`)
+      .then(result => {
+        let user = result.rows[0];
+        if (user) {
+          //compare pw with hash
+          bcrypt.compare(pw, user.password).then(function(result) {
+            if (result) {
+              res
+                .cookie("user_id", user.userid, {
+                  httpOnly: true,
+                  // secure: req.app.get("env") !== "development",
+                  secure: false,
+                  signed: true
+                })
+                .send(req.signedCookies);
+            } else {
+              res.send("invalid login");
+            }
+          });
+        } else {
+          res.send("invalid login");
+        }
+      })
+      .catch(e => console.log(e));
+  },
+  defLogin: (req, res) => {
+    console.log(req.signedCookies.user_id);
+    // db.query(``)
   }
 };
