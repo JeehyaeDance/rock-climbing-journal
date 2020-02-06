@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./LogIn.jsx";
 import LogPage from "./LogPage.jsx";
+import CreateAcc from "./CreateAcc.jsx";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 export default function Router() {
@@ -10,8 +11,11 @@ export default function Router() {
         <Route exact path="/">
           <Login />
         </Route>
-        <Route exact path="/log">
+        <Route path="/log">
           <LogPage />
+        </Route>
+        <Route path="/createAcc">
+          <CreateAcc />
         </Route>
       </Switch>
     </BrowserRouter>
