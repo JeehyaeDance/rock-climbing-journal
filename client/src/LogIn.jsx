@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./style/LogIn.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class LogIn extends React.Component {
   constructor(props) {
@@ -64,9 +65,9 @@ class LogIn extends React.Component {
             </div>
             <div className={styles.needAcc}>
               <span>Need an account? </span>
-              <span className={styles.createBtn} id="CreateAcc" onClick={this.props.toggleLoginPage}>
+              <Link to="/createAcc" className={styles.createBtn} id="CreateAcc">
                 Create Account
-              </span>
+              </Link>
             </div>
           </div>
         </div>

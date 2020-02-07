@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styles from "./style/CreateAcc.css";
+import { Link, useHistory } from "react-router-dom";
 
 class CreateAcc extends React.Component {
   constructor(props) {
@@ -32,12 +33,13 @@ class CreateAcc extends React.Component {
       axios
         .post("/createAcc", user)
         .then(response => {
-          console.log(response);
           let result = response.data;
           if (result == "user exist") {
             alert("this username is already taken");
           } else {
-            this.props.toggleLoginPage();
+            let history = useHistory();
+            history.push("/");
+            console.log(history);
             //can automatically login with userid later
           }
         })
@@ -66,9 +68,9 @@ class CreateAcc extends React.Component {
             </button>
             <div className={styles.havAcc}>
               <span>Already have an account?</span>
-              <span className={styles.loginBtn} id="loginBtn" onClick={this.props.toggleLoginPage}>
+              <Link to="/" className={styles.loginBtn} id="loginBtn">
                 Login
-              </span>
+              </Link>
             </div>
           </div>
         </div>
