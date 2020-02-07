@@ -44,3 +44,11 @@ form {
   cursor: pointer;
   text-shadow: 1px 1px #a9a9a9;
 }
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  justify-content: space-around;
+  align-items: center;
+}

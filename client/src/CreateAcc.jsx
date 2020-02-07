@@ -58,9 +58,9 @@ class CreateAcc extends React.Component {
       <div className={styles.centerPiece}>
         <div className={styles.leftSide}>
           {accCreated ? (
-            <div>
-              <h2>Welcome {accUserName}!</h2>
-              <span>your account is created, now let's go climb!</span>
+            <div className={styles.confirm}>
+              <h1>Welcome {accUserName}!</h1>
+              <span>Your account is created, now let's go climb! 🧗🏻‍♀️</span>
               <Link to="/" className={styles.loginBtn} id="loginBtn">
                 Login
               </Link>
