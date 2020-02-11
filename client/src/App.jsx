@@ -7,10 +7,18 @@ class App extends React.Component {
     this.state = {
       isLoggedIn: false
     };
+
+    this.logInState = this.logInState.bind(this);
+  }
+
+  logInState() {
+    this.setState(({ isLoggedIn }) => ({
+      isLoggedIn: !isLoggedIn
+    }));
   }
 
   render() {
-    return <div>{this.state.isLoggedIn ? <PrivateRouter /> : <PublicRouter />}</div>;
+    return <div>{this.state.isLoggedIn ? <PrivateRouter /> : <PublicRouter logInState={this.logInState} />}</div>;
   }
 }
 
