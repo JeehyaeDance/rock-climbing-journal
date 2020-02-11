@@ -4,18 +4,27 @@ import LogPage from "./LogPage.jsx";
 import CreateAcc from "./CreateAcc.jsx";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-export default function Router() {
+export function PublicRouter() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
           <Login />
         </Route>
-        <Route path="/log">
-          <LogPage />
-        </Route>
         <Route path="/createAcc">
           <CreateAcc />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+}
+
+export function PrivateRouter() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/log">
+          <LogPage />
         </Route>
       </Switch>
     </BrowserRouter>
