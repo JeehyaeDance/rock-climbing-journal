@@ -5,11 +5,18 @@
   font-family: "Roboto", sans-serif;
 }
 
+.welcome {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 20px 0px 100px 20px;
+}
+
 .navBar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px 20px 20px 0px;
+  justify-content: flex-start;
+  padding: 20px 0px 20px 0px;
 }
 
 .navBtn {

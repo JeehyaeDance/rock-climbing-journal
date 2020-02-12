@@ -60,7 +60,7 @@ class LogPage extends React.Component {
       <div className={styles.background}>
         <div className={styles.mainBox}>
           <div className={styles.navBar}>
-            <span>Hello, {userName}</span>
+            <span className={styles.welcome}>Hello, {userName}!</span>
             <div className={styles.navBtn}>
               <PlusIcon />
             </div>
