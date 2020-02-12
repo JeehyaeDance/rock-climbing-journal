@@ -85,11 +85,13 @@ module.exports = {
       .catch(e => console.log(e));
   },
   defLogin: (req, res) => {
-    console.log(req.signedCookies.user_id);
     db.query(`SELECT userid, username from users WHERE userid = '${req.signedCookies.user_id}'`)
       .then(data => {
         res.send(data.rows[0]);
       })
       .catch(e => console.log(e));
+  },
+  logout: (req, res) => {
+    res.clearCookie("user_id").end();
   }
 };

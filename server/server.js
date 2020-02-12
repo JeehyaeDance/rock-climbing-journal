@@ -28,4 +28,6 @@ app.post("/createAcc", bodyParser.json(), cb.createAcc);
 
 app.post("/login", bodyParser.json(), cb.login);
 
+app.get("/logout", cb.logout);
+
 app.listen(port, () => console.log(`server is watching on port ${port}!`));
