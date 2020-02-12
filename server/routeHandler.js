@@ -59,6 +59,10 @@ module.exports = {
       .then(result => {
         let user = result.rows[0];
         if (user) {
+          let userInfo = {
+            userName: user.username,
+            userId: user.userid
+          };
           //compare pw with hash
           bcrypt.compare(pw, user.password).then(function(result) {
             if (result) {
@@ -69,7 +73,7 @@ module.exports = {
                   secure: false,
                   signed: true
                 })
-                .send(req.signedCookies);
+                .send(userInfo);
             } else {
               res.send("invalid login");
             }

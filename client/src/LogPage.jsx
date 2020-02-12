@@ -55,11 +55,12 @@ class LogPage extends React.Component {
   }
 
   render() {
-    const { toggleStat, level, userId, isLogged, note } = this.state;
+    const { toggleStat, level, userId, userName, isLogged, note } = this.state;
     return (
       <div className={styles.background}>
         <div className={styles.mainBox}>
           <div className={styles.navBar}>
+            <span>Hello, {userName}</span>
             <div className={styles.navBtn}>
               <PlusIcon />
             </div>

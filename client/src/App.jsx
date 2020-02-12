@@ -18,21 +18,19 @@ class App extends React.Component {
     axios
       .get(`/auth`)
       .then(response => {
-        this.logInState();
-        this.setState({
-          username: response.data.username,
-          userid: response.data.userid
-        });
+        this.logInState(response.data);
       })
       .catch(e => {
         console.log(e);
       });
   }
 
-  logInState() {
-    this.setState(({ isLoggedIn }) => ({
-      isLoggedIn: !isLoggedIn
-    }));
+  logInState(info) {
+    this.setState({
+      isLoggedIn: !this.state.isLoggedIn,
+      username: info.username,
+      userid: info.userid
+    });
   }
 
   render() {
