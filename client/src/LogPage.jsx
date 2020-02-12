@@ -19,6 +19,22 @@ class LogPage extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.toggleStats = this.toggleStats.bind(this);
+    this.logOut = this.logOut.bind(this);
+  }
+
+  logOut(e) {
+    e.preventDefault();
+    axios
+      .get("/logout")
+      .then(result => {
+        console.log(result);
+        let userInfo = {
+          username: "",
+          userid: 0
+        };
+        this.props.logInState(userInfo);
+      })
+      .catch(e => console.log(e));
   }
 
   handleChange(e) {
@@ -61,6 +77,7 @@ class LogPage extends React.Component {
         <div className={styles.mainBox}>
           <div className={styles.navBar}>
             <span className={styles.welcome}>Hello, {userName}!</span>
+            <div onClick={this.logOut}>Log Out</div>
             <div className={styles.navBtn}>
               <PlusIcon />
             </div>

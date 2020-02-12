@@ -24,7 +24,7 @@ export function PrivateRouter(props) {
     <BrowserRouter>
       <Switch>
         <Route path="/">
-          <LogPage userInfo={props.userInfo} />
+          <LogPage userInfo={props.userInfo} logInState={props.logInState} />
         </Route>
       </Switch>
     </BrowserRouter>

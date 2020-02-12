@@ -40,7 +40,11 @@ class App extends React.Component {
     };
     return (
       <div>
-        {this.state.isLoggedIn ? <PrivateRouter userInfo={userInfo} /> : <PublicRouter logInState={this.logInState} />}
+        {this.state.isLoggedIn ? (
+          <PrivateRouter userInfo={userInfo} logInState={this.logInState} />
+        ) : (
+          <PublicRouter logInState={this.logInState} />
+        )}
       </div>
     );
   }
