@@ -60,8 +60,8 @@ module.exports = {
         let user = result.rows[0];
         if (user) {
           let userInfo = {
-            userName: user.username,
-            userId: user.userid
+            username: user.username,
+            userid: user.userid
           };
           //compare pw with hash
           bcrypt.compare(pw, user.password).then(function(result) {
