@@ -18,16 +18,7 @@ app.use(
   })
 );
 
-app.get("/*", function(req, res) {
-  console.log(__dirname);
-  res.sendFile(path.join(__dirname, "../public/index.html"), function(err) {
-    if (err) {
-      res.status(500).send(err);
-    }
-  });
-});
-
-app.get("/api", authMiddleware.ensureLoggedIn, cb.defLogin);
+app.get("/auth", authMiddleware.ensureLoggedIn, cb.defLogin);
 
 app.get("/logs/:userId", bodyParser.json(), cb.getLogs);
 
