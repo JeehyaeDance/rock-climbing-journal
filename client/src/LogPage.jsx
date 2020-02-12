@@ -11,7 +11,8 @@ class LogPage extends React.Component {
     this.state = {
       level: 0,
       note: "",
-      userId: this.props.userId,
+      userId: this.props.userInfo.userId,
+      userName: this.props.userInfo.userName,
       isLogged: false,
       toggleStat: false
     };

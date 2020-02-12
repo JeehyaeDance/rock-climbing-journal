@@ -19,12 +19,12 @@ export function PublicRouter(props) {
   );
 }
 
-export function PrivateRouter() {
+export function PrivateRouter(props) {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/">
-          <LogPage />
+          <LogPage userInfo={props.userInfo} />
         </Route>
       </Switch>
     </BrowserRouter>
