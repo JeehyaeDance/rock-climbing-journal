@@ -77,7 +77,9 @@ class LogPage extends React.Component {
         <div className={styles.mainBox}>
           <div className={styles.navBar}>
             <span className={styles.welcome}>Hello, {userName}!</span>
-            <div onClick={this.logOut}>Log Out</div>
+            <div onClick={this.logOut} className={styles.logoutBtn}>
+              Log Out
+            </div>
             <div className={styles.navBtn}>
               <PlusIcon />
             </div>

@@ -9,7 +9,19 @@
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: bold;
-  margin: 20px 0px 0px 20px;
+  margin: 20px 0px 10px 20px;
+}
+
+.logoutBtn {
+  text-decoration: underline;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  margin: 0px 0px 50px 20px;
+}
+
+.logoutBtn:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px #a9a9a9;
 }
 
 .navBar {
