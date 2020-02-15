@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
+import { LineChart, BarChart, Bar, Line, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
 import styles from "./style/Chart.css";
 
 export function SevenDayLine(props) {
@@ -12,6 +12,14 @@ export function SevenDayLine(props) {
         <YAxis />
         <Tooltip />
       </LineChart>
+    </div>
+  );
+}
+
+export function DailyBar(props) {
+  return (
+    <div>
+      <BarChart></BarChart>
     </div>
   );
 }
