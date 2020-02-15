@@ -18,8 +18,14 @@ export function SevenDayLine(props) {
 
 export function DailyBar(props) {
   return (
-    <div>
-      <BarChart width={600} height={300}></BarChart>
+    <div className={styles.chart}>
+      <BarChart width={600} height={300} data={props.data} margin={{ top: 10, right: 20, bottom: 0, left: 0 }}>
+        <CartesianGrid stroke="#ccc" strokeDasharray="3 3" />
+        <XAxis dataKey="level" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="count" />
+      </BarChart>
     </div>
   );
 }

@@ -18,10 +18,9 @@ class Stat extends React.Component {
       .then(response => {
         let allLog = sortAllLogs(response.data.allLog);
         let todayLog = sortTodayLogs(response.data.todayLog);
-        console.log(todayLog);
         this.setState({
-          allLog: allLog,
-          todayLog: response.data.todayLog
+          allLog,
+          todayLog
         });
       })
       .catch(error => console.log(error));

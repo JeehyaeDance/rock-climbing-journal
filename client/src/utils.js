@@ -19,11 +19,10 @@ function sortAllLogs(logs) {
 }
 
 function sortTodayLogs(logs) {
-  console.log(logs);
   let result = [];
-  //showing only upto level 5
+  //showing only upto level 4
   while (result.length < 5) {
-    result.push({ level: result.length, count: 0 });
+    result.push({ level: "Lv" + result.length, count: 0 });
   }
   logs.forEach(log => {
     result[log.level].count++;
