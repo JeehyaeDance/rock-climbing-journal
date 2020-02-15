@@ -18,12 +18,4 @@ function sortLogs(logs) {
   return result;
 }
 
-function getToday() {
-  let today = new Date();
-  let dd = String(today.getDate());
-  let mm = String(today.getMonth() + 1);
-  today = "0" + mm + "-" + dd;
-  return today;
-}
-
-export { sortLogs, getToday };
+export { sortLogs };
