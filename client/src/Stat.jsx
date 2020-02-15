@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { sortLogs } from "./utils.js";
+import { sortAllLogs, sortTodayLogs } from "./utils.js";
 import { SevenDayLine, DailyBar } from "./Chart.jsx";
 
 class Stat extends React.Component {
@@ -16,7 +16,9 @@ class Stat extends React.Component {
     axios
       .get(`/logs/${this.props.userId}`)
       .then(response => {
-        let allLog = sortLogs(response.data.allLog);
+        let allLog = sortAllLogs(response.data.allLog);
+        let todayLog = sortTodayLogs(response.data.todayLog);
+        console.log(todayLog);
         this.setState({
           allLog: allLog,
           todayLog: response.data.todayLog
@@ -35,7 +37,7 @@ class Stat extends React.Component {
         </div>
         <div>
           <span>Today's Report</span>
-          <DailyBar />
+          <DailyBar data={this.state.todayLog} />
         </div>
       </div>
     );

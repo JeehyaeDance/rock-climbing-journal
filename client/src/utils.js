@@ -1,4 +1,4 @@
-function sortLogs(logs) {
+function sortAllLogs(logs) {
   let countObj = {};
   let result = [];
   logs.forEach(log => {
@@ -18,4 +18,17 @@ function sortLogs(logs) {
   return result;
 }
 
-export { sortLogs };
+function sortTodayLogs(logs) {
+  console.log(logs);
+  let result = [];
+  //showing only upto level 5
+  while (result.length < 5) {
+    result.push({ level: result.length, count: 0 });
+  }
+  logs.forEach(log => {
+    result[log.level].count++;
+  });
+  return result;
+}
+
+export { sortAllLogs, sortTodayLogs };

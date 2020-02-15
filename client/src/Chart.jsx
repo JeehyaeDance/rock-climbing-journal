@@ -19,7 +19,7 @@ export function SevenDayLine(props) {
 export function DailyBar(props) {
   return (
     <div>
-      <BarChart></BarChart>
+      <BarChart width={600} height={300}></BarChart>
     </div>
   );
 }
