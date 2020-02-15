@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { sortLogs } from "./utils.js";
-import Chart from "./Chart.jsx";
+import { SevenDayLine } from "./Chart.jsx";
 
 class Stat extends React.Component {
   constructor(props) {
@@ -27,7 +27,13 @@ class Stat extends React.Component {
     return (
       <div>
         <h1>Dashboard</h1>
-        <Chart data={this.state.logs} />
+        <div>
+          <span>Recent Climbing Progress</span>
+          <SevenDayLine data={this.state.logs} />
+        </div>
+        <div>
+          <span>Today's Report</span>
+        </div>
       </div>
     );
   }

@@ -10,7 +10,10 @@ function sortLogs(logs) {
     }
   });
   for (let date in countObj) {
-    result.push({ x: `${date.substring(5, 10)}`, y: Math.floor(countObj[date].total / countObj[date].count) });
+    result.push({
+      date: `${date.substring(5, 10)}`,
+      avgLevel: Math.floor(countObj[date].total / countObj[date].count)
+    });
   }
   return result;
 }
