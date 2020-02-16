@@ -17,24 +17,18 @@ module.exports = {
   getLogs: (req, res) => {
     let logs = {};
     db.query(
-      `SELECT level, posting_date FROM logs WHERE userid = '${req.params.userId}' AND posting_date > current_date - interval '7 days'`,
-      (err, data) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(data.rows);
-          logs.allLog = data.rows;
-        }
-      }
-    );
-    db.query(`SELECT level FROM logs WHERE posting_date = CURRENT_DATE`, (err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        logs.todayLog = data.rows;
-        res.send(logs);
-      }
-    });
+      `SELECT level, posting_date FROM logs WHERE userid = '${req.params.userId}' AND posting_date > current_date - interval '7 days'`
+    )
+      .then(result => {
+        logs.allLog = result.rows;
+        db.query(`SELECT level FROM logs WHERE posting_date = CURRENT_DATE`)
+          .then(data => {
+            logs.todayLog = data.rows;
+            res.send(logs);
+          })
+          .catch(error => console.log(error));
+      })
+      .catch(error => console.log(error));
   },
   createAcc: (req, res) => {
     let username = req.body.userName;
@@ -51,15 +45,12 @@ module.exports = {
                   message: "account created"
                 });
               })
-              .catch(error => {
-                console.log(error);
-              });
+              .catch(error => console.log(error));
           });
         } else {
           res.send("user exist");
         }
       })
-      //else, throw error
       .catch(e => console.log(e));
   },
   login: (req, res) => {
