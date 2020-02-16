@@ -36,7 +36,7 @@ class LogIn extends React.Component {
           console.log("loginInfo", loginInfo);
           if (loginInfo !== "invalid login") {
             console.log("logged in!");
-            this.props.logInState(loginInfo);
+            this.props.logInState(loginInfo, true);
           } else {
             alert("your Log In information is not correct");
           }

@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: undefined,
       username: "",
       userid: 0
     };
@@ -18,16 +18,18 @@ class App extends React.Component {
     axios
       .get(`/auth`)
       .then(response => {
-        this.logInState(response.data);
+        this.logInState(response.data, true);
       })
       .catch(e => {
-        console.log(e);
+        this.setState({
+          isLoggedIn: false
+        });
       });
   }
 
-  logInState(info) {
+  logInState(info, success) {
     this.setState({
-      isLoggedIn: !this.state.isLoggedIn,
+      isLoggedIn: success,
       username: info.username,
       userid: info.userid
     });
@@ -38,7 +40,7 @@ class App extends React.Component {
       userName: this.state.username,
       userId: this.state.userid
     };
-    return (
+    return this.state.isLoggedIn === undefined ? null : (
       <div>
         {this.state.isLoggedIn ? (
           <PrivateRouter userInfo={userInfo} logInState={this.logInState} />

@@ -1,9 +1,6 @@
 import React from "react";
 import styles from "./style/LogPage.css";
 import axios from "axios";
-import Stat from "./Stat.jsx";
-import PlusIcon from "./PlusIcon.jsx";
-import GraphIcon from "./GraphIcon.jsx";
 
 class LogPage extends React.Component {
   constructor(props) {
@@ -11,42 +8,17 @@ class LogPage extends React.Component {
     this.state = {
       level: 0,
       note: "",
-      userId: this.props.userInfo.userId,
-      userName: this.props.userInfo.userName,
-      isLogged: false,
-      toggleStat: false
+      userId: this.props.userId,
+      isLogged: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.toggleStats = this.toggleStats.bind(this);
-    this.logOut = this.logOut.bind(this);
-  }
-
-  logOut(e) {
-    e.preventDefault();
-    axios
-      .get("/logout")
-      .then(result => {
-        console.log(result);
-        let userInfo = {
-          username: "",
-          userid: 0
-        };
-        this.props.logInState(userInfo);
-      })
-      .catch(e => console.log(e));
   }
 
   handleChange(e) {
     this.setState({
       [e.target.id]: e.target.value
     });
-  }
-
-  toggleStats() {
-    this.setState(({ toggleStat }) => ({
-      toggleStat: !toggleStat
-    }));
   }
 
   handleClick(e) {
@@ -63,7 +35,6 @@ class LogPage extends React.Component {
           level: 0,
           note: ""
         });
-        console.log(response);
       })
       .catch(error => {
         console.log(error);
@@ -71,50 +42,30 @@ class LogPage extends React.Component {
   }
 
   render() {
-    const { toggleStat, level, userId, userName, isLogged, note } = this.state;
+    const { level, isLogged, note } = this.state;
     return (
-      <div className={styles.background}>
-        <div className={styles.mainBox}>
-          <div className={styles.navBar}>
-            <span className={styles.welcome}>Hello, {userName}!</span>
-            <div onClick={this.logOut} className={styles.logoutBtn}>
-              Log Out
-            </div>
-            <div className={styles.navBtn}>
-              <PlusIcon />
-            </div>
-            <div className={styles.navBtn} onClick={this.toggleStats}>
-              <GraphIcon />
-            </div>
-          </div>
-          {toggleStat ? (
-            <Stat userId={userId} />
-          ) : (
-            <div className={styles.centerPiece}>
-              <h1>Climbing Log</h1>
-              <form className={styles.formStyle}>
-                <label>Level</label>
-                <select id="level" value={level} onChange={this.handleChange}>
-                  <option value="0">V0</option>
-                  <option value="1">V1</option>
-                  <option value="2">V2</option>
-                  <option value="3">V3</option>
-                  <option value="4">V4</option>
-                  <option value="5">V5</option>
-                  <option value="6">V6</option>
-                  <option value="7">V7</option>
-                  <option value="8">V8</option>
-                  <option value="9">V9</option>
-                  <option value="10">V10</option>
-                </select>
-                <label>Note</label>
-                <input className={styles.noteBox} id="note" type="text" value={note} onChange={this.handleChange} />
-              </form>
-              <button onClick={this.handleClick}>Save</button>
-              {isLogged ? <span className={styles.saveMsg}>Your log is saved! 🧗🏻‍♀️</span> : null}
-            </div>
-          )}
-        </div>
+      <div className={styles.centerPiece}>
+        <h1>Climbing Log</h1>
+        <form className={styles.formStyle}>
+          <label>Level</label>
+          <select id="level" value={level} onChange={this.handleChange}>
+            <option value="0">V0</option>
+            <option value="1">V1</option>
+            <option value="2">V2</option>
+            <option value="3">V3</option>
+            <option value="4">V4</option>
+            <option value="5">V5</option>
+            <option value="6">V6</option>
+            <option value="7">V7</option>
+            <option value="8">V8</option>
+            <option value="9">V9</option>
+            <option value="10">V10</option>
+          </select>
+          <label>Note</label>
+          <input className={styles.noteBox} id="note" type="text" value={note} onChange={this.handleChange} />
+        </form>
+        <button onClick={this.handleClick}>Save</button>
+        {isLogged ? <span className={styles.saveMsg}>Your log is saved! 🧗🏻‍♀️</span> : null}
       </div>
     );
   }

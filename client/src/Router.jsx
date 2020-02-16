@@ -2,6 +2,9 @@ import React from "react";
 import Login from "./LogIn.jsx";
 import LogPage from "./LogPage.jsx";
 import CreateAcc from "./CreateAcc.jsx";
+import Stat from "./Stat.jsx";
+import NavBar from "./NavBar.jsx";
+import styles from "./style/Router.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 export function PublicRouter(props) {
@@ -22,11 +25,19 @@ export function PublicRouter(props) {
 export function PrivateRouter(props) {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/">
-          <LogPage userInfo={props.userInfo} logInState={props.logInState} />
-        </Route>
-      </Switch>
+      <div className={styles.background}>
+        <div className={styles.mainBox}>
+          <NavBar userName={props.userInfo.userName} logInState={props.logInState} />
+          <Switch>
+            <Route exact path="/">
+              <LogPage userId={props.userInfo.userId} />
+            </Route>
+            <Route path="/stat">
+              <Stat userId={props.userInfo.userId} />
+            </Route>
+          </Switch>
+        </div>
+      </div>
     </BrowserRouter>
   );
 }
