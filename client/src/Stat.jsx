@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { sortAllLogs, sortTodayLogs } from "./utils.js";
 import { SevenDayLine, DailyBar } from "./Chart.jsx";
+import styles from "./style/Stat.css";
 
 class Stat extends React.Component {
   constructor(props) {
@@ -30,13 +31,15 @@ class Stat extends React.Component {
     return (
       <div>
         <h1>Dashboard</h1>
-        <div>
-          <span>Recent Climbing Progress</span>
-          <SevenDayLine data={this.state.allLog} />
-        </div>
-        <div>
-          <span>Today's Report</span>
-          <DailyBar data={this.state.todayLog} />
+        <div className={styles.stats}>
+          <div>
+            <span className={styles.graphTitle}>Recent Climbing Progress</span>
+            <SevenDayLine data={this.state.allLog} />
+          </div>
+          <div>
+            <span className={styles.graphTitle}>Today's Report</span>
+            <DailyBar data={this.state.todayLog} />
+          </div>
         </div>
       </div>
     );
