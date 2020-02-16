@@ -17,13 +17,13 @@ module.exports = {
   getLogs: (req, res) => {
     let logs = {};
     db.query(
-      `SELECT level, posting_date FROM logs WHERE userid = '${req.params.userId}' ORDER BY posting_date ASC`,
+      `SELECT level, posting_date FROM logs WHERE userid = '${req.params.userId}' AND posting_date > current_date - interval '7 days'`,
       (err, data) => {
         if (err) {
           console.log(err);
         } else {
+          console.log(data.rows);
           logs.allLog = data.rows;
-          // res.send(data.rows);
         }
       }
     );
