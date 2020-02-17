@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE logs (
     logId SERIAL PRIMARY KEY,
     level INTEGER NOT NULL,
-    posting_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    posting_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     note TEXT,
     userId INTEGER REFERENCES users(userId)
 );

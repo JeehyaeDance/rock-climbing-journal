@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
   logWork: (req, res) => {
-    const note = req.body.note || null;
+    const note = `'${req.body.note}'` || null;
     db.query(
       `INSERT INTO logs (level, note, userid) VALUES ('${req.body.level}', ${note}, '${req.body.userId}')`,
       (err, data) => {
@@ -18,11 +18,13 @@ module.exports = {
   getLogs: (req, res) => {
     let logs = {};
     db.query(
-      `SELECT level, posting_date FROM logs WHERE userid = '${req.params.userId}' AND posting_date > current_date - interval '7 days'`
+      `SELECT level, posting_at FROM logs WHERE userid = '${req.params.userId}' AND posting_at > DATE_TRUNC('day', now()) - interval '7 days'`
     )
       .then(result => {
         logs.allLog = result.rows;
-        db.query(`SELECT level FROM logs WHERE posting_date = CURRENT_DATE`)
+        db.query(
+          `SELECT level FROM logs WHERE userid = '${req.params.userId}' AND DATE_TRUNC('day',posting_at) = CURRENT_DATE`
+        )
           .then(data => {
             logs.todayLog = data.rows;
             res.send(logs);
@@ -97,7 +99,7 @@ module.exports = {
     res.clearCookie("user_id").end();
   },
   getNotes: (req, res) => {
-    db.query(`SELECT level, posting_date, note from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL`)
+    db.query(`SELECT level, posting_at, note from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL`)
       .then(result => {
         res.send(result.rows);
       })

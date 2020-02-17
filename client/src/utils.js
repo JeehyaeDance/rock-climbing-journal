@@ -24,6 +24,7 @@ function sortTodayLogs(logs) {
   while (result.length < 5) {
     result.push({ level: "Lv" + result.length, count: 0 });
   }
+  console.log(logs);
   logs.forEach(log => {
     result[log.level].count++;
   });
