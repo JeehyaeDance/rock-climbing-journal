@@ -31,4 +31,6 @@ app.post("/login", bodyParser.json(), cb.login);
 
 app.get("/logout", cb.logout);
 
+app.get("/getNotes/:userId", cb.getNotes);
+
 app.listen(port, () => console.log(`server is watching on port ${port}!`));

@@ -4,6 +4,7 @@ import LogPage from "./LogPage.jsx";
 import CreateAcc from "./CreateAcc.jsx";
 import Stat from "./Stat.jsx";
 import NavBar from "./NavBar.jsx";
+import Notes from "./Notes.jsx";
 import styles from "./style/Router.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
@@ -34,6 +35,9 @@ export function PrivateRouter(props) {
             </Route>
             <Route path="/stat">
               <Stat userId={props.userInfo.userId} />
+            </Route>
+            <Route path="/notes">
+              <Notes />
             </Route>
           </Switch>
         </div>

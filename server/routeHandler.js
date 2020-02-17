@@ -3,8 +3,9 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
   logWork: (req, res) => {
+    const note = req.body.note || null;
     db.query(
-      `INSERT INTO logs (level, note, userid) VALUES ('${req.body.level}', '${req.body.note}', '${req.body.userId}')`,
+      `INSERT INTO logs (level, note, userid) VALUES ('${req.body.level}', ${note}, '${req.body.userId}')`,
       (err, data) => {
         if (err) {
           console.log(err);
@@ -94,5 +95,12 @@ module.exports = {
   },
   logout: (req, res) => {
     res.clearCookie("user_id").end();
+  },
+  getNotes: (req, res) => {
+    db.query(`SELECT level, posting_date, note from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL`)
+      .then(result => {
+        res.send(result.rows);
+      })
+      .catch(e => console.log(e));
   }
 };
