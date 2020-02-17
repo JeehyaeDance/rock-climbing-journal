@@ -1,0 +1,11 @@
+.graphTitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
