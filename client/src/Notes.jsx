@@ -30,7 +30,14 @@ class Notes extends React.Component {
             <h1>Notes</h1>
             {notes.map(note => (
               <div key={note.logid} className={styles.noteBox}>
-                <span>Posted at: {new Date(note.posting_at).toString()}</span>
+                <span>
+                  Posted at: {new Date(note.posting_at).toDateString() + " "}
+                  {new Date(note.posting_at).toLocaleTimeString("en-US", {
+                    hour: "numeric",
+                    hour12: true,
+                    minute: "numeric"
+                  })}
+                </span>
                 <span>level: {note.level}</span>
                 <span>note: {note.note}</span>
               </div>
