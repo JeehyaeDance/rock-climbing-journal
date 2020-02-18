@@ -37,7 +37,7 @@ export function PrivateRouter(props) {
               <Stat userId={props.userInfo.userId} />
             </Route>
             <Route path="/notes">
-              <Notes />
+              <Notes userId={props.userInfo.userId} />
             </Route>
           </Switch>
         </div>

@@ -101,7 +101,9 @@ module.exports = {
     res.clearCookie("user_id").end();
   },
   getNotes: (req, res) => {
-    db.query(`SELECT level, posting_at, note from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL`)
+    db.query(
+      `SELECT level, posting_at, note, logid from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL`
+    )
       .then(result => {
         res.send(result.rows);
       })
