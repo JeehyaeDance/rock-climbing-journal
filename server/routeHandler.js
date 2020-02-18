@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 module.exports = {
   logWork: (req, res) => {
-    const note = `'${req.body.note}'` || null;
+    const note = req.body.note === "" ? null : `'${req.body.note}'`;
     db.query(
       `INSERT INTO logs (level, note, userid) VALUES ('${req.body.level}', ${note}, '${req.body.userId}')`,
       (err, data) => {
@@ -102,7 +102,7 @@ module.exports = {
   },
   getNotes: (req, res) => {
     db.query(
-      `SELECT level, posting_at, note, logid from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL`
+      `SELECT level, posting_at, note, logid from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL LIMIT 10`
     )
       .then(result => {
         res.send(result.rows);
