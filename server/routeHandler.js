@@ -17,10 +17,12 @@ module.exports = {
   },
   getLogs: (req, res) => {
     let logs = {};
-    db.query(
-      `SELECT level, posting_at FROM logs WHERE userid = '${req.params.userId}' AND posting_at > DATE_TRUNC('day', now()) - interval '7 days'`
-    )
+    // db.query(
+    //   `SELECT level, posting_at FROM logs WHERE userid = '${req.params.userId}' AND posting_at > DATE_TRUNC('day', now()) - interval '7 days'`
+    // )
+    db.query("select * from logs")
       .then(result => {
+        console.log(result.rows);
         logs.allLog = result.rows;
         db.query(
           `SELECT level FROM logs WHERE userid = '${req.params.userId}' AND DATE_TRUNC('day',posting_at) = CURRENT_DATE`

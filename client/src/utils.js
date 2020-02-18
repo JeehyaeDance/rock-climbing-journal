@@ -2,16 +2,18 @@ function sortAllLogs(logs) {
   let countObj = {};
   let result = [];
   logs.forEach(log => {
-    if (!countObj[log.posting_date]) {
-      countObj[log.posting_date] = { count: 1, total: log.level };
+    let date = new Date(log.posting_at).toDateString().substring(4, 10);
+    if (!countObj[date]) {
+      countObj[date] = { count: 1, total: log.level };
     } else {
-      countObj[log.posting_date].count++;
-      countObj[log.posting_date].total += log.level;
+      countObj[date].count++;
+      countObj[date].total += log.level;
     }
   });
+
   for (let date in countObj) {
     result.push({
-      date: `${date.substring(5, 10)}`,
+      date: date,
       avgLevel: Math.floor(countObj[date].total / countObj[date].count)
     });
   }
@@ -24,7 +26,6 @@ function sortTodayLogs(logs) {
   while (result.length < 5) {
     result.push({ level: "Lv" + result.length, count: 0 });
   }
-  console.log(logs);
   logs.forEach(log => {
     result[log.level].count++;
   });
