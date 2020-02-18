@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import styles from "./style/Notes.css";
 
 class Notes extends React.Component {
   constructor(props) {
@@ -24,18 +25,20 @@ class Notes extends React.Component {
     const { notes } = this.state;
     return (
       <div>
-        <h1>Notes</h1>
         {notes ? (
-          <div>
+          <div className={styles.noteAlign}>
+            <h1>Notes</h1>
             {notes.map(note => (
-              <div key={note.logid}>
-                <span>Posted at: {note.posting_at}</span>
+              <div key={note.logid} className={styles.noteBox}>
+                <span>Posted at: {new Date(note.posting_at).toString()}</span>
                 <span>level: {note.level}</span>
                 <span>note: {note.note}</span>
               </div>
             ))}
           </div>
-        ) : null}
+        ) : (
+          <span>There is no notes saved</span>
+        )}
       </div>
     );
   }

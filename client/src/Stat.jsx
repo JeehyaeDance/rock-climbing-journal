@@ -30,8 +30,8 @@ class Stat extends React.Component {
   render() {
     return (
       <div>
-        <h1>Dashboard</h1>
         <div className={styles.stats}>
+          <h1>Dashboard</h1>
           <div>
             <span className={styles.graphTitle}>Recent Climbing Progress</span>
             <SevenDayLine data={this.state.allLog} />
