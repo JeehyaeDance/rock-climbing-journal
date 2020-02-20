@@ -8,11 +8,16 @@
   border-radius: 8px;
   width: 450px;
   height: 60px;
-  padding: 10px 20px;
+  padding: 10px 20px 0px 20px;
   margin-bottom: 10px;
   background-color: white;
 }
 
 .noteAlign {
   margin: 0px 100px;
+}
+
+.postingTime {
+  color: #a9a9a9;
+  text-align: right;
 }
