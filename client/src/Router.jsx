@@ -5,6 +5,7 @@ import CreateAcc from "./CreateAcc.jsx";
 import Stat from "./Stat.jsx";
 import NavBar from "./NavBar.jsx";
 import Notes from "./Notes.jsx";
+import Setting from "./Setting.jsx";
 import styles from "./style/Router.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
@@ -38,6 +39,9 @@ export function PrivateRouter(props) {
             </Route>
             <Route path="/notes">
               <Notes userId={props.userInfo.userId} />
+            </Route>
+            <Route path="/setting">
+              <Setting />
             </Route>
           </Switch>
         </div>

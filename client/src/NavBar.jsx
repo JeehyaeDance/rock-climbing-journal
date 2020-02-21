@@ -2,6 +2,7 @@ import React from "react";
 import PlusIcon from "./icons/PlusIcon.jsx";
 import GraphIcon from "./icons/GraphIcon.jsx";
 import InboxIcon from "./icons/InboxIcon.jsx";
+import SettingIcon from "./icons/SettingIcon.jsx";
 import styles from "./style/NavBar.css";
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
@@ -35,6 +36,9 @@ function NavBarComponent(props) {
       </Link>
       <Link to="/notes" className={styles.navBtn}>
         <InboxIcon />
+      </Link>
+      <Link to="/setting" className={styles.navBtn}>
+        <SettingIcon />
       </Link>
     </div>
   );
