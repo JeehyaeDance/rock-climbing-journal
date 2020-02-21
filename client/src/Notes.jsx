@@ -33,7 +33,7 @@ class Notes extends React.Component {
                 <span>Lv{note.level}</span>
                 <span>note: {note.note}</span>
                 <span className={styles.postingTime}>
-                  Posted at: {new Date(note.posting_at).toDateString() + " "}
+                  {new Date(note.posting_at).toDateString() + " "}
                   {new Date(note.posting_at).toLocaleTimeString("en-US", {
                     hour: "numeric",
                     hour12: true,
