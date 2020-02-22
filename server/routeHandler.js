@@ -108,5 +108,12 @@ module.exports = {
         res.send(result.rows);
       })
       .catch(e => console.log(e));
+  },
+  changeUserName: (req, res) => {
+    db.query(`UPDATE users SET username = '${req.body.newusername}' WHERE userid = '${req.body.userId}' `)
+      .then(result => {
+        res.sendStatus(200);
+      })
+      .catch(e => console.log(e));
   }
 };

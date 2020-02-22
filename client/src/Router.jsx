@@ -41,7 +41,7 @@ export function PrivateRouter(props) {
               <Notes userId={props.userInfo.userId} />
             </Route>
             <Route path="/setting">
-              <Setting />
+              <Setting userId={props.userInfo.userId} />
             </Route>
           </Switch>
         </div>

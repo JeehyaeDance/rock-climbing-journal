@@ -23,7 +23,7 @@ class Setting extends React.Component {
             <span>Please select option.</span>
           </Route>
           <Route path={`${path}/:option`}>
-            <Option param={params} />
+            <Option userId={this.props.userId} param={params} />
           </Route>
         </Switch>
       </div>
