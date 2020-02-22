@@ -9,7 +9,7 @@ class Setting extends React.Component {
   }
 
   render() {
-    let { path, url } = this.props.match;
+    let { path, url, params } = this.props.match;
     return (
       <div>
         <h1>Setting</h1>
@@ -23,7 +23,7 @@ class Setting extends React.Component {
             <span>Please select option.</span>
           </Route>
           <Route path={`${path}/:option`}>
-            <Option />
+            <Option param={params} />
           </Route>
         </Switch>
       </div>
