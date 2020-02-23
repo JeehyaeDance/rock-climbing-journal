@@ -5,6 +5,7 @@ import CreateAcc from "./CreateAcc.jsx";
 import Stat from "./Stat.jsx";
 import NavBar from "./NavBar.jsx";
 import Notes from "./Notes.jsx";
+import Splash from "./Splash.jsx";
 import Setting from "./Setting.jsx";
 import styles from "./style/Router.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
@@ -14,6 +15,9 @@ export function PublicRouter(props) {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
+          <Splash />
+        </Route>
+        <Route exact path="/loginPage">
           <Login logInState={props.logInState} />
         </Route>
         <Route path="/createAcc">
