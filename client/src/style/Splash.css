@@ -1,35 +1,26 @@
-.allFont {
-  font-family: "Poppins";
-  color: #1d3e4b;
-}
-
-.centerContents {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.centerExp {
+.text-container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   width: 1000px;
   height: 260px;
   margin: 110px 0px;
+  text-align: center;
 }
 
-.mainExp {
+.title {
   font-weight: bold;
   font-size: 48px;
+  color: #1d3e4b;
 }
 
-.subExp {
+.description {
   font-weight: lighter;
   font-size: 28px;
+  color: #1d3e4b;
 }
 
-.formBox {
+.form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,18 +41,21 @@
   text-decoration-line: none;
 }
 
-.loginOption {
+.login-text {
   font-size: 14px;
   margin-top: 22px;
   display: flex;
   justify-content: space-evenly;
+  color: #1d3e4b;
 }
 
 .login {
   color: #5bc0eb;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .login:hover {
   cursor: pointer;
-  text-shadow: 1px 1px #3d85a4;
+  color: #3d85a4;
 }

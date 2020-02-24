@@ -12,3 +12,7 @@ body,
 #app {
   height: 100vh;
 }
+
+html {
+  font-family: "Poppins";
+}
