@@ -1,31 +1,9 @@
 import React from "react";
-import styles from "./style/LogIn.css";
-import Header from "./Header.jsx";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import Page from "./Page";
+import Form from "./Form";
 
-class LogIn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userName: "",
-      password: ""
-    };
-    this.changeHandler = this.changeHandler.bind(this);
-    this.logIn = this.logIn.bind(this);
-  }
-
-  changeHandler(e) {
-    this.setState({
-      [e.target.id]: e.target.value
-    });
-  }
-
-  logIn(e) {
-    e.preventDefault();
-    let userName = this.state.userName;
-    let password = this.state.password;
+function LogIn(props) {
+  let logIn = (userName, password, cb) => {
     let user = {
       userName: userName,
       password: password
@@ -38,7 +16,7 @@ class LogIn extends React.Component {
           console.log("loginInfo", loginInfo);
           if (loginInfo !== "invalid login") {
             console.log("logged in!");
-            this.props.logInState(loginInfo, true);
+            cb(loginInfo, true);
           } else {
             alert("your Log In information is not correct");
           }
@@ -47,39 +25,13 @@ class LogIn extends React.Component {
     } else {
       alert("please fill out form correctly");
     }
-  }
+  };
 
-  render() {
-    let { userName, password } = this.state;
-    return (
-      <Page className={styles["login-page"]}>
-        <h1>Login</h1>
-        <div className={styles.loginForm}>
-          <div className={styles.loginBox}>
-            <input
-              className={styles.input}
-              placeholder="User Name"
-              id="userName"
-              type="text"
-              value={userName}
-              onChange={this.changeHandler}
-            />
-            <input
-              className={styles.input}
-              placeholder="Password"
-              id="password"
-              type="password"
-              value={password}
-              onChange={this.changeHandler}
-            />
-          </div>
-          <button id="LogIn" onClick={this.logIn}>
-            Log In
-          </button>
-        </div>
-      </Page>
-    );
-  }
+  return (
+    <>
+      <Form type="Login" clickHandler={logIn} cb={props.logInState} />
+    </>
+  );
 }
 
 export default LogIn;
