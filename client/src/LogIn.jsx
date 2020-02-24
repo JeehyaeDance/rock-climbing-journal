@@ -3,6 +3,7 @@ import styles from "./style/LogIn.css";
 import Header from "./Header.jsx";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Page from "./Page";
 
 class LogIn extends React.Component {
   constructor(props) {
@@ -49,32 +50,34 @@ class LogIn extends React.Component {
   }
 
   render() {
+    let { userName, password } = this.state;
     return (
-      <div className={styles.allFont}>
-        <Header />
-        <div className={styles.loginPage}>
-          <div>
-            <h1>Login</h1>
-            <div className={styles.loginForm}>
-              <form className={styles.loginBox}>
-                <label>User Name</label>
-                <input id="userName" type="text" value={this.state.userName} onChange={this.changeHandler} />
-                <label>Password</label>
-                <input id="password" type="password" value={this.state.password} onChange={this.changeHandler} />
-              </form>
-              <button id="LogIn" onClick={this.logIn}>
-                Log In
-              </button>
-            </div>
+      <Page className={styles["login-page"]}>
+        <h1>Login</h1>
+        <div className={styles.loginForm}>
+          <div className={styles.loginBox}>
+            <input
+              className={styles.input}
+              placeholder="User Name"
+              id="userName"
+              type="text"
+              value={userName}
+              onChange={this.changeHandler}
+            />
+            <input
+              className={styles.input}
+              placeholder="Password"
+              id="password"
+              type="password"
+              value={password}
+              onChange={this.changeHandler}
+            />
           </div>
-          <div className={styles.needAcc}>
-            <span>Need an account? </span>
-            <Link to="/createAcc" className={styles.createBtn} id="CreateAcc">
-              Create Account
-            </Link>
-          </div>
+          <button id="LogIn" onClick={this.logIn}>
+            Log In
+          </button>
         </div>
-      </div>
+      </Page>
     );
   }
 }
