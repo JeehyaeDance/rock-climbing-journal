@@ -8,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, "public"),
     publicPath: "/public"
   },
+  resolve: {
+    extensions: [".jsx", ".js"]
+  },
   module: {
     rules: [
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: "babel-loader" },
