@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./style/LogIn.css";
+import Header from "./Header.jsx";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -49,8 +50,9 @@ class LogIn extends React.Component {
 
   render() {
     return (
-      <div className={styles.centerPiece}>
-        <div className={styles.leftSide}>
+      <div className={styles.allFont}>
+        <Header />
+        <div className={styles.loginPage}>
           <div>
             <h1>Login</h1>
             <div className={styles.loginForm}>
@@ -64,16 +66,13 @@ class LogIn extends React.Component {
                 Log In
               </button>
             </div>
-            <div className={styles.needAcc}>
-              <span>Need an account? </span>
-              <Link to="/createAcc" className={styles.createBtn} id="CreateAcc">
-                Create Account
-              </Link>
-            </div>
           </div>
-        </div>
-        <div className={styles.rightSide}>
-          <p>WELCOME TO CLIMBING DAY</p>
+          <div className={styles.needAcc}>
+            <span>Need an account? </span>
+            <Link to="/createAcc" className={styles.createBtn} id="CreateAcc">
+              Create Account
+            </Link>
+          </div>
         </div>
       </div>
     );

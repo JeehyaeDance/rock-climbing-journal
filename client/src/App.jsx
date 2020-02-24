@@ -41,13 +41,13 @@ class App extends React.Component {
       userId: this.state.userid
     };
     return this.state.isLoggedIn === undefined ? null : (
-      <div>
+      <>
         {this.state.isLoggedIn ? (
           <PrivateRouter userInfo={userInfo} logInState={this.logInState} />
         ) : (
           <PublicRouter logInState={this.logInState} />
         )}
-      </div>
+      </>
     );
   }
 }

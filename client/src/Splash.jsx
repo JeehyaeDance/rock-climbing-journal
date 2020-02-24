@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./style/Splash.css";
+import Header from "./Header.jsx";
+import { Link } from "react-router-dom";
 
 function Splash() {
   return (
     <div className={styles.allFont}>
-      <h2>Climbing Day</h2>
+      <Header />
       <div className={styles.centerContents}>
         <div className={styles.centerExp}>
           <span className={styles.mainExp}>The best way to track your rock climbing</span>
@@ -14,10 +16,14 @@ function Splash() {
           </span>
         </div>
         <div className={styles.formBox}>
-          <span className={styles.button}>Create Account</span>
+          <Link to="/createAcc" className={styles.button}>
+            Create Account
+          </Link>
           <div className={styles.loginOption}>
             <span>Already have an account?</span>
-            <span className={styles.login}>Login</span>
+            <Link to="/loginPage" className={styles.login}>
+              Login
+            </Link>
           </div>
         </div>
       </div>
