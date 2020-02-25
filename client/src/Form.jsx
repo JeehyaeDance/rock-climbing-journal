@@ -28,7 +28,7 @@ class Form extends React.Component {
     let { userName, password } = this.state;
     return (
       <Page className={styles.page}>
-        <h1>{this.props.type}</h1>
+        <h1 className={styles.title}>{this.props.type}</h1>
         <div className={styles.form}>
           <div className={styles.inputs}>
             <input

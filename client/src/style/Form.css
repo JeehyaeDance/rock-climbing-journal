@@ -5,7 +5,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  align-items: center;
 }
 
 .inputs {
@@ -29,6 +29,7 @@
   align-items: center;
   justify-content: center;
   text-decoration-line: none;
+  margin-top: 71px;
 }
 
 .input {
@@ -39,4 +40,12 @@
   font-size: 24px;
   padding-left: 35px;
   border-radius: 5px;
+}
+
+.title {
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 64px;
+  width: 490px;
 }
