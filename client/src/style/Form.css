@@ -35,10 +35,13 @@
   height: 60px;
   width: 470px;
   background-color: #ffffff;
-  color: #b3d1de;
   font-size: 24px;
   padding-left: 35px;
   border-radius: 5px;
+}
+
+.input::placeholder {
+  color: #b3d1de;
 }
 
 .title {
