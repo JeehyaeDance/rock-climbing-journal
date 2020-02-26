@@ -13,12 +13,13 @@
 .message {
   font-size: 28px;
   color: #ffffff;
+  margin: 0px;
 }
 
 .button {
   width: 260px;
   height: 60px;
-  background-color: #5bc0eb;
+  background-color: #3d85a4;
   color: #ffffff;
   font-family: "Poppins";
   border-radius: 5px;
@@ -28,4 +29,10 @@
   align-items: center;
   justify-content: center;
   text-decoration-line: none;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
 }

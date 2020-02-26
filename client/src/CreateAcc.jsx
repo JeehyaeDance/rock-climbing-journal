@@ -46,10 +46,12 @@ class CreateAcc extends React.Component {
       <>
         {this.state.accCreated ? (
           <Page className={styles.page}>
-            <h1 className={styles.welcome}>Welcome!</h1>
-            <p className={styles.message}>Your account is created, now let's go climb! 🧗🏻‍♀️</p>
-            <Link to="/" className={styles.button} id="loginBtn">
-              Login
+            <div className={styles.confirmation}>
+              <h1 className={styles.welcome}>Welcome!</h1>
+              <p className={styles.message}>Your account is created, now let's go climb! 🧗🏻‍♀️</p>
+            </div>
+            <Link to="/" className={styles.button}>
+              Back to Home Page
             </Link>
           </Page>
         ) : (
