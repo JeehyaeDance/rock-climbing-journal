@@ -62,7 +62,8 @@ class LogPage extends React.Component {
             <option value="10">V10</option>
           </select>
           <label>Note</label>
-          <input className={styles.noteBox} id="note" type="text" value={note} onChange={this.handleChange} />
+          <textarea className={styles.noteBox} id="note" value={note} onChange={this.handleChange}></textarea>
+          {/* <input className={styles.noteBox} id="note" type="text" value={note} onChange={this.handleChange} /> */}
         </form>
         <button onClick={this.handleClick}>Save</button>
         {isLogged ? <span className={styles.saveMsg}>Your log is saved! 🧗🏻‍♀️</span> : null}
