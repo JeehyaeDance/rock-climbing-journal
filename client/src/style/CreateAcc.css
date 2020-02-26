@@ -1,54 +1,31 @@
-.centerPiece {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
+.page {
+  background-color: #5bc0eb;
 }
 
-.leftSide {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto", sans-serif;
-  background-color: #f5f5f5;
-}
-
-.rightSide {
-  flex: 3;
-  background-image: url(../../../public/images/climbing.jpeg);
-  background-size: cover;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  min-height: 130px;
-  min-width: 200px;
-  color: #a9a9a9;
-}
-
-.havAcc {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  color: #a9a9a9;
-}
-
-.loginBtn {
-  color: black;
+.welcome {
+  color: #ffffff;
+  text-align: left;
   font-weight: bold;
+  font-size: 64px;
+  width: 490px;
 }
 
-.loginBtn:hover {
-  cursor: pointer;
-  text-shadow: 1px 1px #a9a9a9;
+.message {
+  font-size: 28px;
+  color: #ffffff;
 }
 
-.confirm {
+.button {
+  width: 260px;
+  height: 60px;
+  background-color: #5bc0eb;
+  color: #ffffff;
+  font-family: "Poppins";
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
   display: flex;
-  flex-direction: column;
-  min-height: 200px;
-  justify-content: space-around;
   align-items: center;
+  justify-content: center;
+  text-decoration-line: none;
 }

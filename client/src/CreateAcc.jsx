@@ -1,31 +1,20 @@
 import React from "react";
 import axios from "axios";
 import styles from "./style/CreateAcc.css";
+import Form from "./Form.jsx";
+import Page from "./Page.jsx";
 import { Link } from "react-router-dom";
 
 class CreateAcc extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      accUserName: "",
-      accPassword: "",
       accCreated: false
     };
-
-    this.changeHandler = this.changeHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
   }
 
-  changeHandler(e) {
-    this.setState({
-      [e.target.id]: e.target.value
-    });
-  }
-
-  clickHandler(e) {
-    e.preventDefault();
-    let userName = this.state.accUserName;
-    let password = this.state.accPassword;
+  clickHandler(userName, password) {
     let user = {
       userName: userName,
       password: password
@@ -53,41 +42,20 @@ class CreateAcc extends React.Component {
   }
 
   render() {
-    let { accCreated, accUserName } = this.state;
     return (
-      <div className={styles.centerPiece}>
-        <div className={styles.leftSide}>
-          {accCreated ? (
-            <div className={styles.confirm}>
-              <h1>Welcome {accUserName}!</h1>
-              <span>Your account is created, now let's go climb! 🧗🏻‍♀️</span>
-              <Link to="/" className={styles.loginBtn} id="loginBtn">
-                Login
-              </Link>
-            </div>
-          ) : (
-            <div>
-              <h1>Sign Up</h1>
-              <form>
-                <label>User Name</label>
-                <input id="accUserName" type="text" value={this.state.accUserName} onChange={this.changeHandler} />
-                <label>Password</label>
-                <input id="accPassword" type="password" value={this.state.accPassword} onChange={this.changeHandler} />
-              </form>
-              <button id="realCreateAcc" onClick={this.clickHandler}>
-                Create Account
-              </button>
-              <div className={styles.havAcc}>
-                <span>Already have an account?</span>
-                <Link to="/" className={styles.loginBtn} id="loginBtn">
-                  Login
-                </Link>
-              </div>
-            </div>
-          )}
-        </div>
-        <div className={styles.rightSide}></div>
-      </div>
+      <>
+        {this.state.accCreated ? (
+          <Page className={styles.page}>
+            <h1 className={styles.welcome}>Welcome!</h1>
+            <p className={styles.message}>Your account is created, now let's go climb! 🧗🏻‍♀️</p>
+            <Link to="/" className={styles.button} id="loginBtn">
+              Login
+            </Link>
+          </Page>
+        ) : (
+          <Form type="Create Account" clickHandler={this.clickHandler} />
+        )}
+      </>
     );
   }
 }
