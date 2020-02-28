@@ -6,9 +6,9 @@ function Header(props) {
     <div className={styles.header}>
       <h2 className={styles.title}>Climbing Day</h2>
       {props.private ? (
-        <div>
-          <p>Hello, {props.userName}</p>
-          <span>Log Out</span>
+        <div className={styles.headerRight}>
+          <p className={styles.greeting}>Hello, {props.userName}</p>
+          <span className={styles.logout}>Log Out</span>
         </div>
       ) : null}
     </div>

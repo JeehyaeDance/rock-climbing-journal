@@ -3,10 +3,30 @@
   padding-left: 88px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
   margin: 0px;
+}
+
+.headerRight {
+  display: flex;
+  color: #1d3e4b;
+  align-items: center;
+}
+
+.greeting {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logout {
+  font-weight: lighter;
+  font-size: 15px;
+  width: 70px;
+  padding: 0px 10px;
+  text-align: center;
 }
