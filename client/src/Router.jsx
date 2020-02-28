@@ -8,6 +8,7 @@ import Notes from "./Notes.jsx";
 import Splash from "./Splash.jsx";
 import Setting from "./Setting.jsx";
 import styles from "./style/Router.css";
+import Page from "./Page.jsx";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 export function PublicRouter(props) {
@@ -31,25 +32,23 @@ export function PublicRouter(props) {
 export function PrivateRouter(props) {
   return (
     <BrowserRouter>
-      <div className={styles.background}>
-        <div className={styles.mainBox}>
-          <NavBar userName={props.userInfo.userName} logInState={props.logInState} />
-          <Switch>
-            <Route exact path="/">
-              <LogPage userId={props.userInfo.userId} />
-            </Route>
-            <Route path="/stat">
-              <Stat userId={props.userInfo.userId} />
-            </Route>
-            <Route path="/notes">
-              <Notes userId={props.userInfo.userId} />
-            </Route>
-            <Route path="/setting">
-              <Setting userId={props.userInfo.userId} />
-            </Route>
-          </Switch>
-        </div>
-      </div>
+      <Page className={styles.background}>
+        <NavBar userName={props.userInfo.userName} logInState={props.logInState} />
+        <Switch>
+          <Route exact path="/">
+            <LogPage userId={props.userInfo.userId} />
+          </Route>
+          <Route path="/stat">
+            <Stat userId={props.userInfo.userId} />
+          </Route>
+          <Route path="/notes">
+            <Notes userId={props.userInfo.userId} />
+          </Route>
+          <Route path="/setting">
+            <Setting userId={props.userInfo.userId} />
+          </Route>
+        </Switch>
+      </Page>
     </BrowserRouter>
   );
 }
