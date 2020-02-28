@@ -5,7 +5,7 @@ import styles from "./style/Page.css";
 function Page(props) {
   return (
     <div className={styles.page}>
-      <Header />
+      <Header private={props.private} userName={props.userName} />
       <div className={[styles.content, props.className].join(" ")}>{props.children}</div>
     </div>
   );

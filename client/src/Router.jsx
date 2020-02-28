@@ -32,7 +32,7 @@ export function PublicRouter(props) {
 export function PrivateRouter(props) {
   return (
     <BrowserRouter>
-      <Page className={styles.background}>
+      <Page className={styles.background} private={true} userName={props.userInfo.userName}>
         <NavBar userName={props.userInfo.userName} logInState={props.logInState} />
         <Switch>
           <Route exact path="/">

@@ -5,7 +5,7 @@ import Page from "./Page";
 
 function Splash() {
   return (
-    <Page>
+    <Page private={false}>
       <div className={styles["text-container"]}>
         <h1 className={styles.title}>The best way to track your rock climbing</h1>
         <p className={styles.description}>
