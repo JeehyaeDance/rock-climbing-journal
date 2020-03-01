@@ -8,7 +8,7 @@ const InboxIcon = props => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="black"
+      stroke="#1d3e4b"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
