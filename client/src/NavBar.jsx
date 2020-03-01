@@ -4,46 +4,25 @@ import GraphIcon from "./icons/GraphIcon.jsx";
 import InboxIcon from "./icons/InboxIcon.jsx";
 import SettingIcon from "./icons/SettingIcon.jsx";
 import styles from "./style/NavBar.css";
-import axios from "axios";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavBarComponent(props) {
-  const logOut = e => {
-    e.preventDefault();
-    axios
-      .get("/logout")
-      .then(result => {
-        let userInfo = {
-          username: "",
-          userid: 0
-        };
-        props.history.replace("/");
-        props.logInState(userInfo, false);
-      })
-      .catch(e => console.log(e));
-  };
   return (
     <div className={styles.navBar}>
-      <span className={styles.welcome}>Hello, {props.userName}!</span>
-      <div onClick={logOut} className={styles.logoutBtn}>
-        Log Out
-      </div>
       <Link to="/" className={styles.navBtn}>
-        <PlusIcon />
+        <PlusIcon /> <p>New Climb</p>
       </Link>
       <Link to="/stat" className={styles.navBtn}>
-        <GraphIcon />
+        <GraphIcon /> <p>Statistics</p>
       </Link>
       <Link to="/notes" className={styles.navBtn}>
-        <InboxIcon />
+        <InboxIcon /> <p>Notes</p>
       </Link>
       <Link to="/setting" className={styles.navBtn}>
-        <SettingIcon />
+        <SettingIcon /> <p>Setting</p>
       </Link>
     </div>
   );
 }
 
-const NavBar = withRouter(NavBarComponent);
-
-export default NavBar;
+export default NavBarComponent;

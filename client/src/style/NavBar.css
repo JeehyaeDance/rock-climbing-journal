@@ -1,41 +1,13 @@
 .navBar {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px 0px 20px 0px;
+  border-bottom: 1px;
+  border-bottom-color: #cfdee4;
 }
 
 .navBtn {
-  width: 60px;
-  height: 60px;
-  padding: 10px 0px 10px 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  text-decoration-line: none;
   align-items: center;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.navBtn:hover {
-  background-color: #dcdcdc;
-  transition: background-color 0.2s ease 0s;
-}
-
-.welcome {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 20px 0px 10px 20px;
-}
-
-.logoutBtn {
-  text-decoration: underline;
-  font-family: "Roboto", sans-serif;
-  font-size: 12px;
-  margin: 0px 0px 50px 20px;
-}
-
-.logoutBtn:hover {
-  cursor: pointer;
-  text-shadow: 1px 1px #a9a9a9;
+  color: #1d3e4b;
 }
