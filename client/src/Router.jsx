@@ -32,22 +32,29 @@ export function PublicRouter(props) {
 export function PrivateRouter(props) {
   return (
     <BrowserRouter>
-      <Page className={styles.background} private={true} userName={props.userInfo.userName}>
-        <NavBar userName={props.userInfo.userName} logInState={props.logInState} />
-        <Switch>
-          <Route exact path="/">
-            <LogPage userId={props.userInfo.userId} />
-          </Route>
-          <Route path="/stat">
-            <Stat userId={props.userInfo.userId} />
-          </Route>
-          <Route path="/notes">
-            <Notes userId={props.userInfo.userId} />
-          </Route>
-          <Route path="/setting">
-            <Setting userId={props.userInfo.userId} />
-          </Route>
-        </Switch>
+      <Page
+        className={styles.background}
+        private={true}
+        userName={props.userInfo.userName}
+        logInState={props.logInState}
+      >
+        <div className={styles["main-background"]}>
+          <NavBar />
+          <Switch>
+            <Route exact path="/">
+              <LogPage userId={props.userInfo.userId} />
+            </Route>
+            <Route path="/stat">
+              <Stat userId={props.userInfo.userId} />
+            </Route>
+            <Route path="/notes">
+              <Notes userId={props.userInfo.userId} />
+            </Route>
+            <Route path="/setting">
+              <Setting userId={props.userInfo.userId} />
+            </Route>
+          </Switch>
+        </div>
       </Page>
     </BrowserRouter>
   );
