@@ -10,16 +10,16 @@ function NavBarComponent(props) {
   return (
     <div className={styles.navBar}>
       <Link to="/" className={styles.navBtn}>
-        <PlusIcon /> <p>New Climb</p>
+        <PlusIcon /> <p className={styles["nav-btn-name"]}>New Climb</p>
       </Link>
       <Link to="/stat" className={styles.navBtn}>
-        <GraphIcon /> <p>Statistics</p>
+        <GraphIcon /> <p className={styles["nav-btn-name"]}>Statistics</p>
       </Link>
       <Link to="/notes" className={styles.navBtn}>
-        <InboxIcon /> <p>Notes</p>
+        <InboxIcon /> <p className={styles["nav-btn-name"]}>Notes</p>
       </Link>
       <Link to="/setting" className={styles.navBtn}>
-        <SettingIcon /> <p>Setting</p>
+        <SettingIcon /> <p className={styles["nav-btn-name"]}>Setting</p>
       </Link>
     </div>
   );
