@@ -2,9 +2,10 @@
   display: flex;
   border-bottom: 1px solid #cfdee4;
   justify-content: center;
+  margin: 15px 25px 0px 25px;
 }
 
-.navBtn {
+.nav-btn {
   display: flex;
   flex-direction: row;
   text-decoration-line: none;
@@ -12,6 +13,19 @@
   justify-content: center;
   color: #1d3e4b;
   width: 260px;
+  height: 45px;
+  border-right: 1px solid #cfdee4;
+}
+
+.nav-btn-last {
+  display: flex;
+  flex-direction: row;
+  text-decoration-line: none;
+  align-items: center;
+  justify-content: center;
+  color: #1d3e4b;
+  width: 260px;
+  height: 45px;
 }
 
 .nav-btn-name {

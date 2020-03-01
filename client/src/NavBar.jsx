@@ -9,16 +9,16 @@ import { Link } from "react-router-dom";
 function NavBarComponent(props) {
   return (
     <div className={styles.navBar}>
-      <Link to="/" className={styles.navBtn}>
+      <Link to="/" className={styles["nav-btn"]}>
         <PlusIcon /> <p className={styles["nav-btn-name"]}>New Climb</p>
       </Link>
-      <Link to="/stat" className={styles.navBtn}>
+      <Link to="/stat" className={styles["nav-btn"]}>
         <GraphIcon /> <p className={styles["nav-btn-name"]}>Statistics</p>
       </Link>
-      <Link to="/notes" className={styles.navBtn}>
+      <Link to="/notes" className={styles["nav-btn"]}>
         <InboxIcon /> <p className={styles["nav-btn-name"]}>Notes</p>
       </Link>
-      <Link to="/setting" className={styles.navBtn}>
+      <Link to="/setting" className={styles["nav-btn-last"]}>
         <SettingIcon /> <p className={styles["nav-btn-name"]}>Setting</p>
       </Link>
     </div>
