@@ -4,23 +4,23 @@ import GraphIcon from "./icons/GraphIcon.jsx";
 import InboxIcon from "./icons/InboxIcon.jsx";
 import SettingIcon from "./icons/SettingIcon.jsx";
 import styles from "./style/NavBar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBarComponent(props) {
   return (
     <div className={styles.navBar}>
-      <Link to="/" className={styles["nav-btn"]}>
+      <NavLink exact to="/" className={styles["nav-btn"]} activeClassName={styles["btn-active"]}>
         <PlusIcon /> <p className={styles["nav-btn-name"]}>New Climb</p>
-      </Link>
-      <Link to="/stat" className={styles["nav-btn"]}>
+      </NavLink>
+      <NavLink exact to="/stat" className={styles["nav-btn"]} activeClassName={styles["btn-active"]}>
         <GraphIcon /> <p className={styles["nav-btn-name"]}>Statistics</p>
-      </Link>
-      <Link to="/notes" className={styles["nav-btn"]}>
+      </NavLink>
+      <NavLink exact to="/notes" className={styles["nav-btn"]} activeClassName={styles["btn-active"]}>
         <InboxIcon /> <p className={styles["nav-btn-name"]}>Notes</p>
-      </Link>
-      <Link to="/setting" className={styles["nav-btn-last"]}>
-        <SettingIcon /> <p className={styles["nav-btn-name"]}>Setting</p>
-      </Link>
+      </NavLink>
+      <NavLink exact to="/setting" className={styles["nav-btn-last"]} activeClassName={styles["btn-active"]}>
+        <SettingIcon /> <p className={styles["nav-btn-name"]}>Settings</p>
+      </NavLink>
     </div>
   );
 }

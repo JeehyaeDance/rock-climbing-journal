@@ -17,6 +17,13 @@
   border-right: 1px solid #cfdee4;
 }
 
+.btn-active {
+  background-color: #3d85a4;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #ffffff;
+}
+
 .nav-btn-last {
   display: flex;
   flex-direction: row;
