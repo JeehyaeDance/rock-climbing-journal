@@ -53,24 +53,14 @@
   border-radius: 5px;
   color: #1d3e4b;
   font-weight: bold;
+  transition: background-color 0.2s ease;
 }
 
-/* .radio-wrapper label::after {
-  content: "";
-  position: absolute;
-  display: inline-block;
-  left: -20px;
-  top: 4px;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-} */
+.radio-group input[type="radio"]:checked + label {
+  background-color: #3d85a4;
+  color: #ffffff;
+}
 
-/* 
-  width: 85px;
-  height: 85px;
-  background-color: #eeeeee;
-  font-size: 18px;
-  border-radius: 5px;
-  color: #1d3e4b;
-  font-weight: bold; */
+.radio-group label:hover {
+  background-color: #5bc0eb;
+}

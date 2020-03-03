@@ -6,7 +6,7 @@ class LogPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      level: 0,
+      level: 10,
       note: "",
       userId: this.props.userId,
       isLogged: false
@@ -48,28 +48,46 @@ class LogPage extends React.Component {
         <form className={styles.formStyle}>
           <label>Select Level</label>
           <div className={styles["radio-group"]}>
-            <div className={styles["radio-wrapper"]} onClick={() => this.handleRadioChange(0)}>
-              <input type="radio" id="V0" name="level" value={0} checked={this.state.level === 0} />
-              <label htmlFor={0}>V0</label>
-            </div>
-            <input type="radio" id="V1" name="level" value={1} checked={this.state.level === 1} />
-            <label htmlFor={1}>V1</label>
-            <input type="radio" id="V2" name="level" value={2} checked={this.state.level === 2} />
-            <label htmlFor={2}>V2</label>
-            <input type="radio" id="V3" name="level" value={3} checked={this.state.level === 3} />
-            <label htmlFor={3}>V3</label>
-            <input type="radio" id="V4" name="level" value={4} checked={this.state.level === 4} />
-            <label htmlFor={4}>V4</label>
-            <input type="radio" id="V5" name="level" value={5} checked={this.state.level === 5} />
-            <label htmlFor={5}>V5</label>
-            <input type="radio" id="V6" name="level" value={6} checked={this.state.level === 6} />
-            <label htmlFor={6}>V6</label>
-            <input type="radio" id="V7" name="level" value={7} checked={this.state.level === 7} />
-            <label htmlFor={7}>V7</label>
-            <input type="radio" id="V8" name="level" value={8} checked={this.state.level === 8} />
-            <label htmlFor={8}>V8</label>
-            <input type="radio" id="V9" name="level" value={9} checked={this.state.level === 9} />
-            <label htmlFor={9}>V9</label>
+            <input type="radio" id="V0" name="level" value={0} checked={level === 0} />
+            <label htmlFor="V0" onClick={() => this.handleRadioChange(0)}>
+              V0
+            </label>
+            <input type="radio" id="V1" name="level" value={1} checked={level === 1} />
+            <label htmlFor="V1" onClick={() => this.handleRadioChange(1)}>
+              V1
+            </label>
+            <input type="radio" id="V2" name="level" value={2} checked={level === 2} />
+            <label htmlFor="V2" onClick={() => this.handleRadioChange(2)}>
+              V2
+            </label>
+            <input type="radio" id="V3" name="level" value={3} checked={level === 3} />
+            <label htmlFor="V3" onClick={() => this.handleRadioChange(3)}>
+              V3
+            </label>
+            <input type="radio" id="V4" name="level" value={4} checked={level === 4} />
+            <label htmlFor="V4" onClick={() => this.handleRadioChange(4)}>
+              V4
+            </label>
+            <input type="radio" id="V5" name="level" value={5} checked={level === 5} />
+            <label htmlFor="V5" onClick={() => this.handleRadioChange(5)}>
+              V5
+            </label>
+            <input type="radio" id="V6" name="level" value={6} checked={level === 6} />
+            <label htmlFor="V6" onClick={() => this.handleRadioChange(6)}>
+              V6
+            </label>
+            <input type="radio" id="V7" name="level" value={7} checked={level === 7} />
+            <label htmlFor="V7" onClick={() => this.handleRadioChange(7)}>
+              V7
+            </label>
+            <input type="radio" id="V8" name="level" value={8} checked={level === 8} />
+            <label htmlFor="V8" onClick={() => this.handleRadioChange(8)}>
+              V8
+            </label>
+            <input type="radio" id="V9" name="level" value={9} checked={level === 9} />
+            <label htmlFor="V9" onClick={() => this.handleRadioChange(9)}>
+              V9
+            </label>
           </div>
           {/* <select id="level" value={level} onChange={this.handleChange}>
             <option value="0">V0</option>
