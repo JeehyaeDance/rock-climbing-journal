@@ -53,5 +53,24 @@
   border-radius: 5px;
   color: #1d3e4b;
   font-weight: bold;
-  /* margin-right: 45px; */
 }
+
+/* .radio-wrapper label::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  left: -20px;
+  top: 4px;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+} */
+
+/* 
+  width: 85px;
+  height: 85px;
+  background-color: #eeeeee;
+  font-size: 18px;
+  border-radius: 5px;
+  color: #1d3e4b;
+  font-weight: bold; */

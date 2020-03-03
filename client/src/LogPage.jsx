@@ -11,13 +11,13 @@ class LogPage extends React.Component {
       userId: this.props.userId,
       isLogged: false
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleRadioChange = this.handleRadioChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(e) {
+  handleRadioChange(value) {
     this.setState({
-      [e.target.id]: e.target.value
+      level: value
     });
   }
 
@@ -48,26 +48,28 @@ class LogPage extends React.Component {
         <form className={styles.formStyle}>
           <label>Select Level</label>
           <div className={styles["radio-group"]}>
-            <input type="radio" id="V0" name="level" value="V0" />
-            <label htmlFor="V0">V0</label>
-            <input type="radio" id="V1" name="level" value="V1" />
-            <label htmlFor="V1">V1</label>
-            <input type="radio" id="V2" name="level" value="V2" />
-            <label htmlFor="V2">V2</label>
-            <input type="radio" id="V3" name="level" value="V3" />
-            <label htmlFor="V3">V3</label>
-            <input type="radio" id="V4" name="level" value="V4" />
-            <label htmlFor="V4">V4</label>
-            <input type="radio" id="V5" name="level" value="V5" />
-            <label htmlFor="V5">V5</label>
-            <input type="radio" id="V6" name="level" value="V6" />
-            <label htmlFor="V6">V6</label>
-            <input type="radio" id="V7" name="level" value="V7" />
-            <label htmlFor="V7">V7</label>
-            <input type="radio" id="V8" name="level" value="V8" />
-            <label htmlFor="V8">V8</label>
-            <input type="radio" id="V9" name="level" value="V9" />
-            <label htmlFor="V9">V9</label>
+            <div className={styles["radio-wrapper"]} onClick={() => this.handleRadioChange(0)}>
+              <input type="radio" id="V0" name="level" value={0} checked={this.state.level === 0} />
+              <label htmlFor={0}>V0</label>
+            </div>
+            <input type="radio" id="V1" name="level" value={1} checked={this.state.level === 1} />
+            <label htmlFor={1}>V1</label>
+            <input type="radio" id="V2" name="level" value={2} checked={this.state.level === 2} />
+            <label htmlFor={2}>V2</label>
+            <input type="radio" id="V3" name="level" value={3} checked={this.state.level === 3} />
+            <label htmlFor={3}>V3</label>
+            <input type="radio" id="V4" name="level" value={4} checked={this.state.level === 4} />
+            <label htmlFor={4}>V4</label>
+            <input type="radio" id="V5" name="level" value={5} checked={this.state.level === 5} />
+            <label htmlFor={5}>V5</label>
+            <input type="radio" id="V6" name="level" value={6} checked={this.state.level === 6} />
+            <label htmlFor={6}>V6</label>
+            <input type="radio" id="V7" name="level" value={7} checked={this.state.level === 7} />
+            <label htmlFor={7}>V7</label>
+            <input type="radio" id="V8" name="level" value={8} checked={this.state.level === 8} />
+            <label htmlFor={8}>V8</label>
+            <input type="radio" id="V9" name="level" value={9} checked={this.state.level === 9} />
+            <label htmlFor={9}>V9</label>
           </div>
           {/* <select id="level" value={level} onChange={this.handleChange}>
             <option value="0">V0</option>
