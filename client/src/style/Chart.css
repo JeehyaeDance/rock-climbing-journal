@@ -1,9 +1,7 @@
 .chart {
-  background-color: #dcdcdc;
-  border: 2px solid #dcdcdc;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 620px;
   height: 310px;
-  font-family: "Roboto", sans-serif;
-  margin: 10px 0px 20px 0px;
+  font-family: "Poppins";
+  margin-bottom: 20px;
 }

@@ -1,11 +1,13 @@
 .graphTitle {
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  padding-left: 5px;
+  font-family: "Poppins";
+  font-size: 18px;
+  color: #1d3e4b;
 }
 
 .stats {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
+  margin: 50px 0px;
 }

@@ -29,18 +29,11 @@ class Stat extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className={styles.stats}>
-          <h1>Dashboard</h1>
-          <div>
-            <span className={styles.graphTitle}>Recent Climbing Progress</span>
-            <SevenDayLine data={this.state.allLog} />
-          </div>
-          <div>
-            <span className={styles.graphTitle}>Today's Report</span>
-            <DailyBar data={this.state.todayLog} />
-          </div>
-        </div>
+      <div className={styles.stats}>
+        <h2 className={styles.graphTitle}>Today's Report</h2>
+        <DailyBar data={this.state.todayLog} />
+        <h2 className={styles.graphTitle}>Recent Climbing Progress</h2>
+        <SevenDayLine data={this.state.allLog} />
       </div>
     );
   }
