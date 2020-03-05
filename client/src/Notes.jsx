@@ -24,27 +24,31 @@ class Notes extends React.Component {
   render() {
     const { notes } = this.state;
     return (
-      <div>
+      <div className={styles["content-page"]}>
         {notes ? (
           <div className={styles.noteAlign}>
-            <h1>Notes</h1>
+            <div className={styles["table-head"]}>
+              <p className={styles["table-note"]}>Note</p>
+              <p className={styles["table-level"]}>Level</p>
+              <p className={styles["table-date"]}>Date Added</p>
+            </div>
             {notes.map(note => (
-              <div key={note.logid} className={styles.noteBox}>
-                <span>Lv{note.level}</span>
-                <span>note: {note.note}</span>
-                <span className={styles.postingTime}>
+              <div key={note.logid} className={styles["table-row"]}>
+                <p className={styles["table-note"]}>{note.note}</p>
+                <p className={styles["table-level"]}>V{note.level}</p>
+                <p className={styles["table-date"]}>
                   {new Date(note.posting_at).toDateString() + " "}
                   {new Date(note.posting_at).toLocaleTimeString("en-US", {
                     hour: "numeric",
                     hour12: true,
                     minute: "numeric"
                   })}
-                </span>
+                </p>
               </div>
             ))}
           </div>
         ) : (
-          <span>There is no notes saved</span>
+          <p>There is no notes saved</p>
         )}
       </div>
     );
