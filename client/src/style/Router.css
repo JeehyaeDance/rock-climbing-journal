@@ -1,5 +1,7 @@
 .background {
   background-color: #5bc0eb;
+  height: 100%;
+  overflow: auto;
 }
 
 .main-background {
