@@ -8,7 +8,7 @@ const PlusIcon = props => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#1d3e4b"
+      stroke={props.isActive === "/" ? "#ffffff" : "#1d3e4b"}
       strokeWidth="3"
       strokeLinecap="round"
       strokeLinejoin="round"

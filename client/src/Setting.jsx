@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Link, withRouter } from "react-router-dom";
+import { Switch, Route, NavLink, withRouter } from "react-router-dom";
 import Option from "./Option.jsx";
 import styles from "./style/Settings.css";
 
@@ -15,9 +15,9 @@ class Setting extends React.Component {
       <div className={styles["setting-page"]}>
         <div className={styles.table}>
           <span className={styles["table-head"]}>Personal Settings</span>
-          <Link to={`${url}/User Id`} className={styles["table-row"]}>
+          <NavLink to={`${url}/User Id`} className={styles["table-row"]} activeClassName={styles["active-row"]}>
             User Id
-          </Link>
+          </NavLink>
           <span className={styles["table-row"]}>Password</span>
         </div>
         <div className={styles["sub-content"]}>

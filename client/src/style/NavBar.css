@@ -18,10 +18,10 @@
 }
 
 .btn-active {
+  color: #ffffff;
   background-color: #3d85a4;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  color: #ffffff;
 }
 
 .nav-btn-last {

@@ -24,6 +24,13 @@
   border-bottom: 1px solid #b3d1de;
   text-decoration-line: none;
   padding: 12px;
+  transition: color 0.2s ease;
+}
+
+.active-row {
+  border-left: 5px solid #1d3e4b;
+  color: #3d85a4;
+  font-weight: bold;
 }
 
 .setting-page {
