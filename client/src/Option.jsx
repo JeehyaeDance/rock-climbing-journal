@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
+import styles from "./style/Option.css";
 
 class Option extends React.Component {
   constructor(props) {
@@ -44,15 +45,22 @@ class Option extends React.Component {
     let option = params.option;
     let { newusername, updated } = this.state;
     return (
-      <div>
-        <div>{option}</div>
-        <form>
-          <label>New User Name</label>
-          <input id="newusername" type="text" value={newusername} onChange={this.changeHandler} />
-        </form>
-        <button onClick={this.clickHandler}>Change User Name</button>
-        {updated ? <div>Your User Name has updated.</div> : null}
-      </div>
+      <>
+        <h2 className={styles["sub-title"]}>{option}</h2>
+        <div className={styles["sub-form"]}>
+          <input
+            className={styles.input}
+            id="newusername"
+            type="text"
+            value={newusername}
+            onChange={this.changeHandler}
+          />
+          <button className={styles.button} onClick={this.clickHandler}>
+            Update
+          </button>
+          {updated ? <div>Your User Name has updated.</div> : null}
+        </div>
+      </>
     );
   }
 }
