@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Form from "./Form";
+import { withRouter } from "react-router";
 
 function LogIn(props) {
   let logIn = (userName, password, cb) => {
@@ -16,6 +17,7 @@ function LogIn(props) {
           console.log("loginInfo", loginInfo);
           if (loginInfo !== "invalid login") {
             console.log("logged in!");
+            props.history.replace("/");
             cb(loginInfo, true);
           } else {
             alert("your Log In information is not correct");
@@ -34,4 +36,4 @@ function LogIn(props) {
   );
 }
 
-export default LogIn;
+export default withRouter(LogIn);

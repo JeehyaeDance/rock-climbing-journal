@@ -18,7 +18,7 @@ function NavBarComponent(props) {
       <NavLink exact to="/notes" className={styles["nav-btn"]} activeClassName={styles["btn-active"]}>
         <InboxIcon /> <p className={styles["nav-btn-name"]}>Notes</p>
       </NavLink>
-      <NavLink exact to="/setting" className={styles["nav-btn-last"]} activeClassName={styles["btn-active"]}>
+      <NavLink to="/setting" className={styles["nav-btn-last"]} activeClassName={styles["btn-active"]}>
         <SettingIcon /> <p className={styles["nav-btn-name"]}>Settings</p>
       </NavLink>
     </div>
