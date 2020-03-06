@@ -1,0 +1,37 @@
+.table-head {
+  background-color: #b3d1de;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  height: 155px;
+  font-family: "Poppins";
+  font-size: 18px;
+  border: 1px solid #b3d1de;
+  border-bottom-color: #ffffff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
+}
+
+.table-row {
+  color: #1d3e4b;
+  border-bottom: 1px solid #b3d1de;
+  text-decoration-line: none;
+  padding: 12px;
+}
+
+.setting-page {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px 0px;
+}
+
+.sub-content {
+  width: 600px;
+}
