@@ -7,7 +7,7 @@ class Option extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newusername: "",
+      newVal: "",
       updated: false
     };
 
@@ -17,48 +17,47 @@ class Option extends React.Component {
 
   changeHandler(e) {
     this.setState({
-      [e.target.id]: e.target.value
+      newVal: e.target.value
     });
   }
 
   clickHandler(e) {
     e.preventDefault();
-    let userInfo = {
-      userId: this.props.userId,
-      newusername: this.state.newusername
-    };
-    axios
-      .put("/xUserName", userInfo)
-      .then(response => {
-        this.setState({
-          newusername: "",
-          updated: true
+    let currOption = this.props.match.params.option;
+
+    if (currOption === "User Id") {
+      let userInfo = {
+        userId: this.props.userId,
+        newusername: this.state.newVal
+      };
+      axios
+        .put("/xUserName", userInfo)
+        .then(response => {
+          this.setState({
+            newVal: "",
+            updated: true
+          });
+        })
+        .catch(e => {
+          console.log(e);
         });
-      })
-      .catch(e => {
-        console.log(e);
-      });
+    } else {
+    }
   }
 
   render() {
     let { params } = this.props.match;
     let option = params.option;
-    let { newusername, updated } = this.state;
+    let { newVal, updated } = this.state;
     return (
       <>
         <h2 className={styles["sub-title"]}>{option}</h2>
         <div className={styles["sub-form"]}>
-          <input
-            className={styles.input}
-            id="newusername"
-            type="text"
-            value={newusername}
-            onChange={this.changeHandler}
-          />
+          <input className={styles.input} type="text" value={newVal} onChange={this.changeHandler} />
           <button className={styles.button} onClick={this.clickHandler}>
             Update
           </button>
-          {updated ? <div>Your User Name has updated.</div> : null}
+          {updated ? <div>Your {option} has updated.</div> : null}
         </div>
       </>
     );
