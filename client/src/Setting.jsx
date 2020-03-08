@@ -15,10 +15,12 @@ class Setting extends React.Component {
       <div className={styles["setting-page"]}>
         <div className={styles.table}>
           <span className={styles["table-head"]}>Personal Settings</span>
-          <NavLink to={`${url}/User Id`} className={styles["table-row"]} activeClassName={styles["active-row"]}>
-            User Id
+          <NavLink to={`${url}/User Name`} className={styles["table-row"]} activeClassName={styles["active-row"]}>
+            User Name
           </NavLink>
-          <span className={styles["table-row"]}>Password</span>
+          <NavLink to={`${url}/Password`} className={styles["table-row"]} activeClassName={styles["active-row"]}>
+            Password
+          </NavLink>
         </div>
         <div className={styles["sub-content"]}>
           <Switch>

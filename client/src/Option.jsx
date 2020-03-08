@@ -24,12 +24,12 @@ class Option extends React.Component {
   clickHandler(e) {
     e.preventDefault();
     let currOption = this.props.match.params.option;
+    let userInfo = {
+      userId: this.props.userId,
+      newVal: this.state.newVal
+    };
 
-    if (currOption === "User Id") {
-      let userInfo = {
-        userId: this.props.userId,
-        newusername: this.state.newVal
-      };
+    if (currOption === "User Name") {
       axios
         .put("/xUserName", userInfo)
         .then(response => {
@@ -42,6 +42,12 @@ class Option extends React.Component {
           console.log(e);
         });
     } else {
+      axios
+        .put("/xPassword", userInfo)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(e => console.log(e));
     }
   }
 

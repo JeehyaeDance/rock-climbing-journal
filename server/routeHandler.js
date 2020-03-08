@@ -110,9 +110,27 @@ module.exports = {
       .catch(e => console.log(e));
   },
   changeUserName: (req, res) => {
-    db.query(`UPDATE users SET username = '${req.body.newusername}' WHERE userid = '${req.body.userId}' `)
+    db.query(`UPDATE users SET username = '${req.body.newVal}' WHERE userid = '${req.body.userId}' `)
       .then(result => {
         res.sendStatus(200);
+      })
+      .catch(e => console.log(e));
+  },
+  changePassword: (req, res) => {
+    let userId = req.body.userId;
+    let pw = req.body.newVal;
+    db.query(`SELECT * FROM users WHERE userid = '${userId}'`)
+      .then(result => {
+        let user = result.rows[0];
+        if (user) {
+          bcrypt.hash(pw, 10).then(function(hash) {
+            db.query(`UPDATE users SET password = '${hash}' WHERE userid = '${userId}'`)
+              .then(result => {
+                res.sendStatus(200);
+              })
+              .catch(e => console.log(e));
+          });
+        }
       })
       .catch(e => console.log(e));
   }

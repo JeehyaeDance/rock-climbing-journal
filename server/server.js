@@ -35,4 +35,6 @@ app.get("/getNotes/:userId", cb.getNotes);
 
 app.put("/xUserName", bodyParser.json(), cb.changeUserName);
 
+app.put("/xPassword", bodyParser.json(), cb.changePassword);
+
 app.listen(port, () => console.log(`server is watching on port ${port}!`));
