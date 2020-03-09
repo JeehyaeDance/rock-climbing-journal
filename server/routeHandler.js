@@ -20,18 +20,25 @@ module.exports = {
     // db.query(
     //   `SELECT level, posting_at FROM logs WHERE userid = '${req.params.userId}' AND posting_at > DATE_TRUNC('day', now()) - interval '7 days'`
     // )
-    db.query("select * from logs")
+    db.query(`select DATE(posting_at) posting_date from logs group by posting_date order by posting_date`)
       .then(result => {
-        console.log(result.rows);
-        logs.allLog = result.rows;
+        let seventhDay = result.rows[result.rows.length - 7].posting_date.toString();
+        let onlyDate = seventhDay.substring(0, 15);
         db.query(
-          `SELECT level FROM logs WHERE userid = '${req.params.userId}' AND DATE_TRUNC('day',posting_at) = CURRENT_DATE`
+          `SELECT level, posting_at FROM logs WHERE userid='${req.params.userId}' AND posting_at > '${onlyDate}'`
         )
-          .then(data => {
-            logs.todayLog = data.rows;
-            res.send(logs);
+          .then(weekLog => {
+            logs.allLog = weekLog.rows;
+            db.query(
+              `SELECT level FROM logs WHERE userid = '${req.params.userId}' AND DATE_TRUNC('day',posting_at) = CURRENT_DATE`
+            )
+              .then(data => {
+                logs.todayLog = data.rows;
+                res.send(logs);
+              })
+              .catch(error => console.log(error));
           })
-          .catch(error => console.log(error));
+          .catch(e => console.log(e));
       })
       .catch(error => console.log(error));
   },
