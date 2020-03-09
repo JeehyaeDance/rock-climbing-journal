@@ -17,17 +17,15 @@
 
 .button {
   width: 260px;
-  height: 60px;
   background-color: #3d85a4;
   color: #ffffff;
   font-family: "Poppins";
   border-radius: 5px;
   font-size: 24px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-decoration-line: none;
+  padding: 15px 0px;
+  text-align: center;
   margin-top: 71px;
 }
 
