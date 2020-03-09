@@ -45,7 +45,10 @@ class Option extends React.Component {
       axios
         .put("/xPassword", userInfo)
         .then(response => {
-          console.log(response);
+          this.setState({
+            newVal: "",
+            updated: true
+          });
         })
         .catch(e => console.log(e));
     }

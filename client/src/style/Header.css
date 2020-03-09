@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #1d3e4b;
 }
 
 .title {
@@ -14,7 +15,6 @@
 
 .headerRight {
   display: flex;
-  color: #1d3e4b;
   align-items: center;
 }
 
