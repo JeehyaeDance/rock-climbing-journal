@@ -102,7 +102,7 @@ module.exports = {
   },
   getNotes: (req, res) => {
     db.query(
-      `SELECT level, posting_at, note, logid from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL LIMIT 10`
+      `SELECT level, posting_at, note, logid from logs WHERE userid = '${req.params.userId}' AND note IS NOT NULL ORDER BY logid DESC LIMIT 10`
     )
       .then(result => {
         res.send(result.rows);
