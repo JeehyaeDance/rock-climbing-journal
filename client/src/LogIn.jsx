@@ -14,7 +14,6 @@ function LogIn(props) {
         .post("/login", user, { withCredentials: true })
         .then(response => {
           let loginInfo = response.data;
-          console.log("loginInfo", loginInfo);
           if (loginInfo !== "invalid login") {
             console.log("logged in!");
             props.history.replace("/");

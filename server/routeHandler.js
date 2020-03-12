@@ -17,12 +17,14 @@ module.exports = {
   },
   getLogs: (req, res) => {
     let logs = {};
-    // db.query(
-    //   `SELECT level, posting_at FROM logs WHERE userid = '${req.params.userId}' AND posting_at > DATE_TRUNC('day', now()) - interval '7 days'`
-    // )
     db.query(`select DATE(posting_at) posting_date from logs group by posting_date order by posting_date`)
       .then(result => {
-        let seventhDay = result.rows[result.rows.length - 7].posting_date.toString();
+        let seventhDay;
+        if (result.rows.length > 6) {
+          seventhDay = result.rows[result.rows.length - 7].posting_date.toString();
+        } else {
+          seventhDay = result.rows[0].posting_date.toString();
+        }
         let onlyDate = seventhDay.substring(0, 15);
         db.query(
           `SELECT level, posting_at FROM logs WHERE userid='${req.params.userId}' AND posting_at > '${onlyDate}'`
