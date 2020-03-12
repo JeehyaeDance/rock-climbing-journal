@@ -1,11 +1,11 @@
 .content-page {
   margin: 30px 0px 50px;
+  font-size: 18px;
 }
 
 .table-row {
   display: flex;
   flex-direction: row;
-  font-size: 18px;
   color: #1d3e4b;
   width: 920px;
   height: 45px;
@@ -42,7 +42,6 @@
   display: flex;
   flex-direction: row;
   color: #3d85a4;
-  font-size: 18px;
   height: 45px;
   width: 920px;
 }

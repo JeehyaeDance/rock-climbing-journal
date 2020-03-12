@@ -32,20 +32,24 @@ class Notes extends React.Component {
               <p className={styles["table-level"]}>Level</p>
               <p className={styles["table-date"]}>Date Added</p>
             </div>
-            {notes.map(note => (
-              <div key={note.logid} className={styles["table-row"]}>
-                <p className={styles["table-note"]}>{note.note}</p>
-                <p className={styles["table-level"]}>V{note.level}</p>
-                <p className={styles["table-date"]}>
-                  {new Date(note.posting_at).toDateString() + " "}
-                  {new Date(note.posting_at).toLocaleTimeString("en-US", {
-                    hour: "numeric",
-                    hour12: true,
-                    minute: "numeric"
-                  })}
-                </p>
-              </div>
-            ))}
+            {notes.length === 0 ? (
+              <p>No Note added</p>
+            ) : (
+              notes.map(note => (
+                <div key={note.logid} className={styles["table-row"]}>
+                  <p className={styles["table-note"]}>{note.note}</p>
+                  <p className={styles["table-level"]}>V{note.level}</p>
+                  <p className={styles["table-date"]}>
+                    {new Date(note.posting_at).toDateString() + " "}
+                    {new Date(note.posting_at).toLocaleTimeString("en-US", {
+                      hour: "numeric",
+                      hour12: true,
+                      minute: "numeric"
+                    })}
+                  </p>
+                </div>
+              ))
+            )}
           </div>
         ) : (
           <p>There is no notes saved</p>
