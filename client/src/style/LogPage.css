@@ -59,4 +59,10 @@
   text-align: center;
   text-decoration-line: none;
   margin: 25px 0px;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #3d85a4;
 }

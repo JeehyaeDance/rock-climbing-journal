@@ -33,4 +33,10 @@
   color: #ffffff;
   font-size: 24px;
   font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #3d85a4;
 }

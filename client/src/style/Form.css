@@ -27,6 +27,12 @@
   padding: 15px 0px;
   text-align: center;
   margin-top: 71px;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #b3d1de;
 }
 
 .input {

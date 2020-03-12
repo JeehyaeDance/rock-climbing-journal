@@ -29,4 +29,10 @@
   width: 70px;
   padding: 0px 10px;
   text-align: center;
+  transition: color 0.2s ease;
+}
+
+.logout:hover {
+  cursor: pointer;
+  color: #5bc0eb;
 }
