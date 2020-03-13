@@ -5,14 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client-dev": "webpack-dev-server",
-    "client-prod": "webpack-dev-server --host 0.0.0.0",
-    "server-dev": "NODE_ENV=development nodemon ./server/server.js",
-    "server-prod": "NODE_ENV=production node ./server/server.js",
-    "clean": "rm ./public/bundle.js || true",
+    "client:dev": "webpack-dev-server --open --config webpack.dev.js",
+    "client:prod": "webpack --config webpack.prod.js",
+    "server:dev": "NODE_ENV=development nodemon ./server/server.js",
+    "server:prod": "NODE_ENV=production node ./server/server.js",
+    "clean": "rm ./public/main.bundle.js || true",
     "prestart": "npm run clean",
-    "start": "concurrently \"npm run client-dev\" \"wait-on ./public/bundle.js && npm run server-dev\"",
-    "start-prod": "concurrently \"npm run client-prod\" \"npm run server-prod\""
+    "start": "concurrently \"npm run client:dev\" \"wait-on ./public/main.bundle.js && npm run server:dev\"",
+    "start:prod": "concurrently \"npm run client:prod\" \"wait-on ./public/main.bundle.js && npm run server:prod\""
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "recharts": "^1.8.5"
+    "recharts": "^1.8.5",
+    "style-ext-html-webpack-plugin": "^4.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -54,10 +55,13 @@
     "concurrently": "^5.1.0",
     "css-loader": "^3.2.0",
     "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-root-plugin": "^0.10.0",
     "style-loader": "^1.0.0",
     "wait-on": "^4.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
   }
 }
