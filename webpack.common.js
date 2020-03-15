@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlWebpackRootPlugin = require("html-webpack-root-plugin");
 
 module.exports = {
   mode: "development",
@@ -12,9 +11,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Climbing Day"
-    }),
-    new HtmlWebpackRootPlugin("app")
+      title: "Climbing Day",
+      template: "./client/index.html"
+    })
   ],
   resolve: {
     extensions: [".jsx", ".js"]
