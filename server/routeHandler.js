@@ -21,9 +21,12 @@ module.exports = {
       .then(result => {
         let seventhDay;
         if (result.rows.length > 6) {
-          seventhDay = result.rows[result.rows.length - 7].posting_date.toString();
+          seventhDay =
+            result &&
+            result.rows[result.rows.length - 7] &&
+            result.rows[result.rows.length - 7].posting_date.toString();
         } else {
-          seventhDay = result.rows[0].posting_date.toString();
+          seventhDay = result && result.rows[0] && result.rows[0].posting_date.toString();
         }
         let onlyDate = seventhDay.substring(0, 15);
         db.query(
