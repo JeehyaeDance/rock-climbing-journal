@@ -28,7 +28,7 @@ module.exports = {
         } else {
           seventhDay = result && result.rows[0] && result.rows[0].posting_date.toString();
         }
-        let onlyDate = seventhDay.substring(0, 15);
+        let onlyDate = seventhDay && seventhDay.substring(0, 15);
         db.query(
           `SELECT level, posting_at FROM logs WHERE userid='${req.params.userId}' AND posting_at > '${onlyDate}'`
         )

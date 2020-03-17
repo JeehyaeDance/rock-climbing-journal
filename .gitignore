@@ -13,6 +13,7 @@ logs
 
 #bundle
 main.bundle.js
+main.bundle.js.map
 
 .env.development
 .env.production
