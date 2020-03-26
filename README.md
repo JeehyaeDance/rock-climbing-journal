@@ -10,7 +10,7 @@ Please feel free to open an issue or submit a pull request
 
 ## Development
 
-1. Add a `.env` to your root directory with the following environment variables set:
+1. Add a `.env.development` to your root directory with the following environment variables set:
 
 ```
 DB_HOST
@@ -18,14 +18,32 @@ DB_NAME
 DB_PORT
 ```
 
-2. Install the npm packages within the root directory.
+2. Add a `.env.production` to your root directory with the following environment variables set:
+
+```
+DB_HOST
+DB_NAME
+DB_PORT
+DB_USER
+DB_PASSWORD
+```
+
+3. Install the npm packages within the root directory.
 
 ```
 npm install
 ```
 
-3. Now you should be able to run the program locally. Start the program in both the root directory.
+4. Now you should be able to run the program locally. Start the program in both the root directory.
+
+for development mode.
 
 ```
 npm start
+```
+
+for production mode.
+
+```
+npm start:prod
 ```
