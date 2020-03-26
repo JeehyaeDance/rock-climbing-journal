@@ -4,6 +4,8 @@
 
 a web app helping users to log their rock climbing activity and track with a weekly graph to see their improvement.
 
+Please visit here: https://www.climbingday.com
+
 ## Something isn't working as intended
 
 Please feel free to open an issue or submit a pull request
