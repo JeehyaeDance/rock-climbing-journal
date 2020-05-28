@@ -12,7 +12,7 @@
     "clean": "rm ./public/main.bundle.js || true",
     "prestart": "npm run clean",
     "start": "concurrently \"npm run client:dev\" \"wait-on ./public/main.bundle.js && npm run server:dev\"",
-    "build": "npm run client:prod && npm run server:prod\""
+    "build": "npm run client:prod && npm run server:prod"
   },
   "repository": {
     "type": "git",
