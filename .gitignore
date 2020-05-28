@@ -20,6 +20,9 @@ main.bundle.js.map
 
 docker-compose.yml
 
+auth-hook.sh
+letsencrypt
+
 
 
 
