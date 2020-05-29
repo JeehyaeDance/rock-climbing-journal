@@ -50,6 +50,7 @@ module.exports = {
   createAcc: (req, res) => {
     let username = req.body.userName;
     let pw = req.body.password;
+    console.log(username, pw);
     db.query(`SELECT * FROM users WHERE username = '${username}'`)
       .then(result => {
         let user = result.rows[0];

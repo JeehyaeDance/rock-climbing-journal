@@ -37,4 +37,8 @@ app.put("/xUserName", bodyParser.json(), cb.changeUserName);
 
 app.put("/xPassword", bodyParser.json(), cb.changePassword);
 
+app.get("*", function(request, response) {
+  response.sendFile(path.resolve("public", "index.html"));
+});
+
 app.listen(port, () => console.log(`server is watching on port ${port}!`));

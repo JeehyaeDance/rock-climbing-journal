@@ -20,7 +20,14 @@ function Header(props) {
   };
   return (
     <div className={styles.header}>
-      <h2 className={styles.title}>Climbing Day</h2>
+      <h2
+        onClick={() => {
+          props.history.replace("/");
+        }}
+        className={styles.title}
+      >
+        Climbing Day
+      </h2>
       {props.private ? (
         <div className={styles.headerRight}>
           <p className={styles.greeting}>Hello, {props.userName}</p>
