@@ -1,4 +1,4 @@
-// require("custom-env").env(true);
+require("custom-env").env(true);
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;

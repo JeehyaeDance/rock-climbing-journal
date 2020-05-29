@@ -9,11 +9,10 @@
     "client:prod": "webpack --config webpack.prod.js",
     "server:dev": "NODE_ENV=development nodemon ./server/server.js",
     "server:prod": "NODE_ENV=production node ./server/server.js",
-    "clean": "rm ./public/main.bundle.js || true",
-    "prestart": "npm run clean",
-    "start-dev": "concurrently \"npm run client:dev\" \"wait-on ./public/main.bundle.js && npm run server:dev\"",
+    "start-dev-old": "concurrently \"npm run client:dev\" \"wait-on ./public/main.bundle.js && npm run server:dev\"",
     "build-old": "npm run client:prod && npm run server:prod",
-    "build": "webpack --config webpack.prod.js",
+    "start-dev": "NODE_ENV=development node ./server/server.js",
+    "build": "rm -rf public && webpack --config webpack.prod.js",
     "start": "node ./server/server.js"
   },
   "repository": {
